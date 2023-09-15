@@ -64,6 +64,36 @@
             <x-label for="email" value="{{ __('Email') }}" />
             <x-input id="email" type="email" class="mt-1 block w-full" wire:model="state.email" required autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
+        
+        <!-- Phone Number -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="phone_num" value="{{ __('Phone Number') }}" />
+            <x-input id="phone_num" type="text" class="mt-1 block w-full" wire:model="state.phone_num" required autocomplete="phone_num" />
+            <x-input-error for="phone_num" class="mt-2" />
+
+        <!-- Address -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="address" value="{{ __('Address') }}" />
+            <x-input id="address" type="text" class="mt-1 block w-full" wire:model="state.address" required autocomplete="address" />
+            <x-input-error for="address" class="mt-2" />
+        
+        <!-- State -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="state" value="{{ __('State') }}" />
+            <x-input id="state" type="text" class="mt-1 block w-full" wire:model="state.state" required autocomplete="state" />
+            <x-input-error for="state" class="mt-2" />
+        
+        <!-- City -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="city" value="{{ __('City') }}" />
+            <x-input id="city" type="text" class="mt-1 block w-full" wire:model="state.city" required autocomplete="city" />
+            <x-input-error for="city" class="mt-2" />
+        
+        <!-- Postal Code -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="postal_code" value="{{ __('Postal Code') }}" />
+            <x-input id="postal_code" type="text" class="mt-1 block w-full" wire:model="state.postal_code" required autocomplete="postal_code" />
+            <x-input-error for="postal_code" class="mt-2" />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
                 <p class="text-sm mt-2">

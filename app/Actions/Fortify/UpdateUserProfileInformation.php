@@ -21,6 +21,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'phone_num' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'postal_code' => ['required', 'string', 'max:255'],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -34,6 +39,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'phone_num' => $input['phone_num'],
+                'address' => $input['address'],
+                'state' => $input['state'],
+                'city' => $input['city'],
+                'postal_code' => $input['postal_code'],
             ])->save();
         }
     }
@@ -49,6 +59,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => $input['name'],
             'email' => $input['email'],
             'email_verified_at' => null,
+            'phone_num' => $input['phone_num'],
+            'address' => $input['address'],
+            'state' => $input['state'],
+            'city' => $input['city'],
+            'postal_code' => $input['postal_code'],
         ])->save();
 
         $user->sendEmailVerificationNotification();

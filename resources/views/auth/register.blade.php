@@ -25,6 +25,31 @@
             </div>
 
             <div class="mt-4">
+                <x-label for="phone_num" value="{{ __('Phone Number') }}" />
+                <x-input id="phone_num" class="block mt-1 w-full" type="text" name="phone_num" :value="old('phone_num')" required autofocus autocomplete="phone_num" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="address" value="{{ __('Address') }}" />
+                <x-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="address" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="state" value="{{ __('State') }}" />
+                <x-input id="state" class="block mt-1 w-full" type="text" name="state" :value="old('state')" required autofocus autocomplete="state" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="city" value="{{ __('City') }}" />
+                <x-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autofocus autocomplete="city" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="postal_code" value="{{ __('Postal Code') }}" />
+                <x-input id="postal_code" class="block mt-1 w-full" type="text" name="postal_code" :value="old('postal_code')" required autofocus autocomplete="postal_code" />
+            </div>
+
+            <div class="mt-4">
                 <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>

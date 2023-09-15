@@ -27,6 +27,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone_num',
+        'address',
+        'state',
+        'city',
+        'postal_code',
     ];
 
     /**
@@ -58,4 +63,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // protected $primaryKey = 'user_id'; //: user_id as primary key
+
+    public function gold() //: \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Gold::class);
+    }
+
+    public function pawnshop() //: \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Pawnshop::class);
+    }
 }
