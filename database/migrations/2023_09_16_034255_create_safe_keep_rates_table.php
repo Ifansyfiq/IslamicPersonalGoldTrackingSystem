@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('safe_keep_rates', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+
+            $table->float('rate1');
+            $table->float('rate2');
+            $table->float('rate3');
+
             $table->timestamps();
         });
     }

@@ -17,7 +17,9 @@ class SafeKeepRateFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'rate1' => $this->faker->randomFloat(2, 0.1, 0.9),
+            'rate2' => $this->faker->randomFloat(2, 0.1, 0.9),
+            'rate3' => $this->faker->randomFloat(2, 0.1, 0.9),
         ];
     }
 }
