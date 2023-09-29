@@ -17,7 +17,7 @@ class GoldTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'gold_type' => $this->faker->randomElement(['Jewellery', 'Gold Bar', 'Dinar']),
         ];
     }
 }

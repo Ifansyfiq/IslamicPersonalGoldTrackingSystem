@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('gold_types', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+
+            $table->enum('gold_type', ['Jewellery', 'Gold Bar', 'Dinar']);
+
             $table->timestamps();
         });
     }
