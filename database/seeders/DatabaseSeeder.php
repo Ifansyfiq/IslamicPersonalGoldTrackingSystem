@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GoldSeeder::class,
             GoldTypeSeeder::class,
+            RoleSeeder::class,
         ]);
 
     }

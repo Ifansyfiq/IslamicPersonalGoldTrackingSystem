@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('roles', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+
+            $table->enum('role_type', ['PU', 'PO', 'Admin']);
+            $table->boolean('role_status');
+
             $table->timestamps();
         });
     }
