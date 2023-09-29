@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class GoldType extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'gold_type',
+
+    ];
+
+    public function gold() 
+    {
+        return $this->belongsTo(Gold::class);
+    }
 }

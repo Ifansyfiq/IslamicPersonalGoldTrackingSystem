@@ -18,6 +18,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -64,7 +65,6 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    // protected $primaryKey = 'user_id'; //: user_id as primary key
 
     public function gold() //: \Illuminate\Database\Eloquent\Relations\HasMany
     {
@@ -74,5 +74,10 @@ class User extends Authenticatable
     public function pawnshop() //: \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Pawnshop::class);
+    }
+
+    public function role() 
+    {
+        return $this->hasOne(Role::class);
     }
 }
