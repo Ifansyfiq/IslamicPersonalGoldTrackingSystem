@@ -12,7 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('gold', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            
+            $table->string('gold_name');
+            $table->string('gold_purity');
+            $table->integer('weight');
+            $table->string('buy_shop');
+            $table->enum('status', ['Buy', 'Sell', 'Hold', 'Gift', 'Pawn', 'Renew Pawn', 'Other']);
+            $table->float('buy_price');
+            $table->float('sell_price');
+            $table->integer('spread');
+
             $table->timestamps();
         });
     }

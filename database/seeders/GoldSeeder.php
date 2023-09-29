@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gold;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,8 @@ class GoldSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Gold::factory()
+                ->count(10)
+                ->create();
     }
 }
