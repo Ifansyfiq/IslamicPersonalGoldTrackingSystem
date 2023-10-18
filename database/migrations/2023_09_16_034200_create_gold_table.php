@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             
             $table->string('gold_name');
-            $table->string('gold_purity');
+            $table->enum('gold_purity', ['10', '14', '18', '22', '24']);
             $table->integer('weight');
             $table->string('buy_shop');
             $table->enum('status', ['Buy', 'Sell', 'Hold', 'Gift', 'Pawn', 'Renew Pawn', 'Other']);
