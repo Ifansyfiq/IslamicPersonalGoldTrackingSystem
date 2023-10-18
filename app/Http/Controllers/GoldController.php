@@ -13,7 +13,12 @@ class GoldController extends Controller
      */
     public function index()
     {
-        return view('gold.ViewGoldRecordPage');   
+        $golds = Gold::all(); // Fetch all gold records
+
+        return view('gold.ViewGoldRecordPage', [
+            'golds' => $golds,
+        ]);   // Pass all gold records to the view
+
     }
 
     /**
