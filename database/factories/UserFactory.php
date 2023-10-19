@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -30,6 +31,7 @@ class UserFactory extends Factory
             'state' => $this->faker->state(),
             'city' => $this->faker->city(),
             'postal_code' => $this->faker->postcode(),
+            'role_id' => Role::factory(),
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,
             'remember_token' => Str::random(10),

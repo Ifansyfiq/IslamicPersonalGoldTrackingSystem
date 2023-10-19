@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\SafeKeepRate;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -28,6 +30,8 @@ class PawnshopFactory extends Factory
             'address' => $this->faker->address(),
             'coordinate' => $this->faker->latitude() . ',' . $this->faker->longitude(),
             'operation_time' => $this->faker->randomElement(['9.00 am - 5.00 pm', '9.00 am - 6.00 pm', '9.00 am - 7.00 pm', '9.00 am - 8.00 pm', '9.00 am - 9.00 pm']),
+            'user_id' => User::factory(),
+            'safekeep_rate_id' => SafeKeepRate::factory(),
 
         ];
     }

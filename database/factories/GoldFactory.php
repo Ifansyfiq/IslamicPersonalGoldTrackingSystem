@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\GoldType;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,7 +26,9 @@ class GoldFactory extends Factory
             'status' => $this->faker->randomElement(['Buy', 'Sell', 'Hold', 'Gift', 'Pawn', 'Renew Pawn', 'Other']),
             'buy_price' => $this->faker->randomFloat(2, 10, 500.00),
             'sell_price' => $this->faker->randomFloat(2, 10, 500.00),
-            'spread' => $this->faker->randomDigitNotNull(), 
+            'spread' => $this->faker->randomDigitNotNull(),
+            'user_id' => User::factory(),
+            'goldtype_id' =>  GoldType::factory(),
             
         ];
     }
