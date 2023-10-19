@@ -22,6 +22,8 @@ return new class extends Migration
             $table->float('buy_price');
             $table->float('sell_price');
             $table->integer('spread');
+            $table->text('user_id');
+            $table->text('goldtype_id');
 
             $table->timestamps();
         });

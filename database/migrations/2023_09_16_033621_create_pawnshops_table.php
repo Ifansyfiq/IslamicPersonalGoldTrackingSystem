@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('address');
             $table->string('coordinate');
             $table->enum('operation_time', ['9.00 am - 5.00 pm', '9.00 am - 6.00 pm', '9.00 am - 7.00 pm', '9.00 am - 8.00 pm', '9.00 am - 9.00 pm']);
+            $table->text('user_id');
+            $table->text('safekeep_rate_id');
 
             $table->timestamps();
         });
