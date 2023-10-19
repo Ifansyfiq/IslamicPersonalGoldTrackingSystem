@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gold;
 use App\Http\Requests\StoreGoldRequest;
 use App\Http\Requests\UpdateGoldRequest;
+use Illuminate\Support\Facades\Auth;
 
 class GoldController extends Controller
 {
@@ -13,7 +14,11 @@ class GoldController extends Controller
      */
     public function index()
     {
-        $golds = Gold::all(); // Fetch all gold records
+        // Get the current user's ID
+        $userId = Auth::id();
+
+        // Retrieve gold records for the current user
+        $golds = Gold::where('user_id', $userId)->get();
 
         return view('gold.ViewGoldRecordPage', [
             'golds' => $golds,
