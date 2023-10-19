@@ -47,7 +47,10 @@ class GoldController extends Controller
      */
     public function show(Gold $gold)
     {
-        //
+
+        return view('gold.ViewGoldDetailsPage', [
+            'gold' => $gold,
+        ]);
     }
 
     /**
