@@ -30,6 +30,6 @@ class Gold extends Model
     
     public function goldtype() 
     {
-        return $this->hasMany(GoldType::class);
+        return $this->belongsTo(GoldType::class, 'goldtype_id');
     }
 }
