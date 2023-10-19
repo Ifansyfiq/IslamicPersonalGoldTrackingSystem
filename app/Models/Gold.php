@@ -18,6 +18,8 @@ class Gold extends Model
         'buy_price',
         'sell_price',
         'spread',
+        'user_id',
+        'goldtype_id',
     ];
 
     

@@ -22,6 +22,8 @@ class Pawnshop extends Model
         'address',
         'coordinate',
         'operation_time',
+        'user_id',
+        'safekeep_rate_id',
 
     ];
 

@@ -33,6 +33,7 @@ class User extends Authenticatable
         'state',
         'city',
         'postal_code',
+        'role_id'
     ];
 
     /**
