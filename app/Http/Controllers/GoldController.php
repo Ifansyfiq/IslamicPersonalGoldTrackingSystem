@@ -31,7 +31,7 @@ class GoldController extends Controller
      */
     public function create()
     {
-        //
+        return view('gold.AddGoldRecordPage');
     }
 
     /**
@@ -39,7 +39,21 @@ class GoldController extends Controller
      */
     public function store(StoreGoldRequest $request)
     {
-        //
+        //store a new post
+        Gold::create([
+            'gold_name' => $request->gold_name,
+            'weight' => $request->weight,
+            'buy_shop' => "test",
+            'buy_price' => 4,
+            'sell_price' => 4,
+            'spread' => 4,
+            'user_id' => auth()->user()->id,
+            'goldtype_id' => 1,
+        ]);
+
+
+
+        return redirect()->route('gold.index');
     }
 
     /**

@@ -11,7 +11,7 @@ class StoreGoldRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreGoldRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'gold_name' => 'required|string',
+            'weight' => 'required|string',
+            'user_id' => 'numeric',
         ];
     }
 }
