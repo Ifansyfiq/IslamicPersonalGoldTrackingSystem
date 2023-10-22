@@ -47,7 +47,7 @@ class GoldController extends Controller
             'buy_shop' => $request->buy_shop,
             'status' => $request->status,
             'buy_price' => $request->buy_price,
-            'sell_price' =>$request->sell_price,
+            'sell_price' => $request->sell_price,
             'spread' => $request->spread,
             'user_id' => auth()->user()->id,
             'goldtype_id' => 1,
@@ -74,7 +74,11 @@ class GoldController extends Controller
      */
     public function edit(Gold $gold)
     {
-        //
+        if ($gold->user_id == auth()->user()->id) {
+            return view('gold.EditGoldRecordPage', [
+                'golds' => $gold,
+            ]); // Pass the gold record to the view
+        }
     }
 
     /**
@@ -82,7 +86,20 @@ class GoldController extends Controller
      */
     public function update(UpdateGoldRequest $request, Gold $gold)
     {
-        //
+        if ($gold->user_id == auth()->user()->id) {
+            $gold->update([
+                'gold_name' => $request->gold_name,
+                'gold_purity' => $request->gold_purity,
+                'weight' => $request->weight,
+                'buy_shop' => $request->buy_shop,
+                'status' => $request->status,
+                'buy_price' => $request->buy_price,
+                'sell_price' => $request->sell_price,
+                'spread' => $request->spread
+            ]);
+        }
+
+        return redirect()->route('gold.index');
     }
 
     /**

@@ -11,7 +11,7 @@ class UpdateGoldRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class UpdateGoldRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'gold_name' => 'required|string',
+            'gold_purity' => 'required|string',
+            'weight' => 'required|string',
+            'buy_shop' => 'required|string',
+            'status' => 'required|string',
+            'buy_price' => 'required|string',
+            'sell_price' => 'required|string',
+            'spread' => 'required|string',
         ];
     }
 }
