@@ -107,6 +107,10 @@ class GoldController extends Controller
      */
     public function destroy(Gold $gold)
     {
-        //
+        if ($gold->user_id == auth()->user()->id) {
+            $gold->delete();
+        }
+
+        return redirect()->route('gold.index');
     }
 }
