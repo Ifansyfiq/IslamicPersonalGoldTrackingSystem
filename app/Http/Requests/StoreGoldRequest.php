@@ -23,7 +23,13 @@ class StoreGoldRequest extends FormRequest
     {
         return [
             'gold_name' => 'required|string',
+            'gold_purity' => 'required|string',
             'weight' => 'required|string',
+            'buy_shop' => 'required|string',
+            'status' => 'required|string',
+            'buy_price' => 'required|string',
+            'sell_price' => 'required|string',
+            'spread' => 'required|string',
             'user_id' => 'numeric',
         ];
     }

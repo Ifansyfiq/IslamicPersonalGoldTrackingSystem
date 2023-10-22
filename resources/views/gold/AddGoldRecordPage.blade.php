@@ -18,12 +18,36 @@
                             @csrf
                             <div class="row pt-3">
                                 <div class="control-group col-12">
-                                    <label for="gold_name">Gold Name</label>
+                                    <label for="gold_name">Gold Name :</label>
                                     <input type="text" id="gold_name" class="form-control" name="gold_name" required>
                                 </div>
                                 <div class="control-group col-12 mt-2 pt-3">
-                                    <label for="weight">Weight (g)</label>
+                                    <label for="gold_purity">Purity :</label>
+                                    <input type="text" id="gold_purity" class="form-control" name="gold_purity" required>
+                                </div>
+                                <div class="control-group col-12 mt-2 pt-3">
+                                    <label for="weight">Weight(g) :</label>
                                     <input type="text" id="weight" class="form-control" name="weight" required>
+                                </div>
+                                <div class="control-group col-12 mt-2 pt-3">
+                                    <label for="buy_shop">Buy Shop :</label>
+                                    <input type="text" id="buy_shop" class="form-control" name="buy_shop" required>
+                                </div>
+                                <div class="control-group col-12 mt-2 pt-3">
+                                    <label for="status">Status :</label>
+                                    <input type="text" id="status" class="form-control" name="status" required>
+                                </div>
+                                <div class="control-group col-12 mt-2 pt-3">
+                                    <label for="buy_price">Buy Price(RM) :</label>
+                                    <input type="text" id="buy_price" class="form-control" name="buy_price" required>
+                                </div>
+                                <div class="control-group col-12 mt-2 pt-3">
+                                    <label for="sell_price">Sell Price(RM) :</label>
+                                    <input type="text" id="sell_price" class="form-control" name="sell_price" required>
+                                </div>
+                                <div class="control-group col-12 mt-2 pt-3">
+                                    <label for="spread">Spread(%) :</label>
+                                    <input type="text" id="spread" class="form-control" name="spread" required>
                                 </div>
                             </div>
                             <div class="row mt-2">

@@ -42,11 +42,13 @@ class GoldController extends Controller
         //store a new post
         Gold::create([
             'gold_name' => $request->gold_name,
+            'gold_purity' => $request->gold_purity,
             'weight' => $request->weight,
-            'buy_shop' => "test",
-            'buy_price' => 4,
-            'sell_price' => 4,
-            'spread' => 4,
+            'buy_shop' => $request->buy_shop,
+            'status' => $request->status,
+            'buy_price' => $request->buy_price,
+            'sell_price' =>$request->sell_price,
+            'spread' => $request->spread,
             'user_id' => auth()->user()->id,
             'goldtype_id' => 1,
         ]);
