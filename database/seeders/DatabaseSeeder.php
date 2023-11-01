@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            GoldSeeder::class,
             GoldTypeSeeder::class,
+            GoldSeeder::class,
             RoleSeeder::class,
-            PawnshopSeeder::class,
             SafeKeepRateSeeder::class,
+            PawnshopSeeder::class,
         ]);
 
     }

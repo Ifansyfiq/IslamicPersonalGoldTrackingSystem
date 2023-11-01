@@ -27,8 +27,8 @@ class GoldFactory extends Factory
             'buy_price' => $this->faker->randomFloat(2, 10, 500.00),
             'sell_price' => $this->faker->randomFloat(2, 10, 500.00),
             'spread' => $this->faker->randomDigitNotNull(),
-            'user_id' => User::factory(),
-            'goldtype_id' =>  GoldType::factory(),
+            'user_id' => User::inRandomOrder()->pluck('id')->first(),
+            'goldtype_id' =>  GoldType::inRandomOrder()->pluck('id')->first(),
             
         ];
     }
