@@ -18,7 +18,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            ID
+                                            NO
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Gold Name
@@ -38,10 +38,13 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
+                                    @php
+                                    $counter = 1; // Initialize a counter variable
+                                    @endphp
                                     <tr>
                                         @forelse ($golds as $gold)
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{($gold->id)}}
+                                            {{ $counter }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -71,6 +74,9 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @php
+                                    $counter++; // Increment the counter variable
+                                    @endphp
                                     @empty
                                     <p class="text-warning">No record available</p>
                                     @endforelse
