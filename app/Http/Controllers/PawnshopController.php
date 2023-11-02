@@ -13,7 +13,7 @@ class PawnshopController extends Controller
      */
     public function index()
     {
-        //
+        return view('pawnshop.ViewPawnshopPage');
     }
 
     /**
