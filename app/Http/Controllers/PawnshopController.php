@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pawnshop;
 use App\Http\Requests\StorePawnshopRequest;
 use App\Http\Requests\UpdatePawnshopRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PawnshopController extends Controller
 {
@@ -13,7 +14,15 @@ class PawnshopController extends Controller
      */
     public function index()
     {
-        return view('pawnshop.ViewPawnshopPage');
+        // Get the current user's ID
+        $userId = Auth::id();
+
+        // Retrieve pawnshop records for the current user
+        $pawnshops = Pawnshop::where('user_id', $userId)->get();
+        
+        return view('pawnshop.ViewPawnshopPage', [
+            'pawnshops' => $pawnshops,
+        ]);
     }
 
     /**
