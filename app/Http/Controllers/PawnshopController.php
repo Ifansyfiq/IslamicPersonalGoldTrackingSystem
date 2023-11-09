@@ -46,7 +46,9 @@ class PawnshopController extends Controller
      */
     public function show(Pawnshop $pawnshop)
     {
-        //
+        return view('pawnshop.ViewPawnshopDetailsPage', [
+            'pawnshop' => $pawnshop,
+        ]);
     }
 
     /**
