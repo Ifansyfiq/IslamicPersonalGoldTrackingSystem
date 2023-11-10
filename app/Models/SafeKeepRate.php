@@ -19,6 +19,6 @@ class SafeKeepRate extends Model
 
     public function pawnshop() 
     {
-        return $this->belongsTo(Pawnshop::class);
+        return $this->hasOne(Pawnshop::class);
     }
 }
