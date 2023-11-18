@@ -72,6 +72,10 @@ class PawnshopController extends Controller
      */
     public function destroy(Pawnshop $pawnshop)
     {
-        //
+        if ($pawnshop->user_id == auth()->user()->id) {
+            $pawnshop->delete();
+        }
+
+        return redirect()->route('gold.index');
     }
 }
