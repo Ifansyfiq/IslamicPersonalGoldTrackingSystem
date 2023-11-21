@@ -31,6 +31,7 @@ class StoreGoldRequest extends FormRequest
             'sell_price' => 'required|string',
             'spread' => 'required|string',
             'user_id' => 'numeric',
+            'gold_type_id' => ['required', 'exists:gold_types,id'],
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gold;
+use App\Models\GoldType;
 use App\Http\Requests\StoreGoldRequest;
 use App\Http\Requests\UpdateGoldRequest;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,12 @@ class GoldController extends Controller
      */
     public function create()
     {
-        return view('gold.AddGoldRecordPage');
+        // Retrieve all gold types
+        $goldTypes = GoldType::all();
+
+        return view('gold.AddGoldRecordPage', [
+            'goldTypes' => $goldTypes,
+        ]);
     }
 
     /**
@@ -39,6 +45,9 @@ class GoldController extends Controller
      */
     public function store(StoreGoldRequest $request)
     {
+        // Retrieve the gold type based on the selected gold_type_id
+        $goldType = GoldType::findOrFail($request->gold_type_id);
+        
         //store a new post
         Gold::create([
             'gold_name' => $request->gold_name,
@@ -50,7 +59,7 @@ class GoldController extends Controller
             'sell_price' => $request->sell_price,
             'spread' => $request->spread,
             'user_id' => auth()->user()->id,
-            'goldtype_id' => 1,
+            'goldtype_id' => $goldType->id, // Store the gold_type_id,
         ]);
 
 
