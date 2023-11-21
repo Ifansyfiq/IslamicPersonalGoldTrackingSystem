@@ -92,6 +92,6 @@ class PawnshopController extends Controller
             $pawnshop->delete();
         }
 
-        return redirect()->route('gold.index');
+        return redirect()->route('pawnshop.index');
     }
 }
