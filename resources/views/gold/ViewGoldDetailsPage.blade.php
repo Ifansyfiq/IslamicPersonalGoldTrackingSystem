@@ -4,37 +4,103 @@
             {{ __('Record') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="block mb-8">
-                <h2 class="text-black underline font-semibold ">Gold Details</h2>
+            <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                    <thead class="text-xs text-white uppercase bg-gray-800">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Gold Details
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Gold Name
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->gold_name)}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Gold Type
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->goldtype->gold_type)}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Purity (k)
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->gold_purity)}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Weight (g)
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->weight)}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Buy Shop
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->buy_shop)}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Status
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->status)}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Buy Price (RM)
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->buy_price)}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Sell Price
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->sell_price)}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Spread (%)
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->spread)}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="flex flex-col">
-                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">  
-
-                        <h2 class="text-black"><b>Gold Name:</b> {{($gold->gold_name)}} </h2>
-                        
-                        <h2 class="text-black"><b>Gold Type:</b> {{($gold->goldtype->gold_type)}} </h2>
-
-                        <h2 class="text-black"><b>Purity (k):</b> {{($gold->gold_purity)}} </h2>
-
-                        <h2 class="text-black"><b>Weight (g):</b> {{($gold->weight)}} </h2>
-
-                        <h2 class="text-black"><b>Buy Shop:</b> {{($gold->buy_shop)}} </h2>
-
-                        <h2 class="text-black"><b>Status:</b> {{($gold->status)}} </h2>
-
-                        <h2 class="text-black"><b>Buy Price (RM):</b> {{($gold->buy_price)}} </h2>
-
-                        <h2 class="text-black"><b>Sell Price:</b> {{($gold->sell_price)}} </h2>
-
-                        <h2 class="text-black"><b>Spread (%):</b> {{($gold->spread)}} </h2>
-                    </div>
-                </div>
+            <div class="flex items-center justify-center px-4 py-3 text-center sm:px-6">
+                <a href="{{ route('gold.edit', [$gold->id]) }}" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Edit</a>
+                <form class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" action="{{ route('gold.destroy', [$gold->id]) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="submit" class="" value="DELETE">
+                </form>
             </div>
-
         </div>
     </div>
 </x-app-layout>
