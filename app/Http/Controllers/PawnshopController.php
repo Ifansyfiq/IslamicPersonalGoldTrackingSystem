@@ -30,7 +30,7 @@ class PawnshopController extends Controller
      */
     public function create()
     {
-        //
+        return view('pawnshop.AddPawnshopPage');
     }
 
     /**
@@ -38,7 +38,23 @@ class PawnshopController extends Controller
      */
     public function store(StorePawnshopRequest $request)
     {
-        //
+        Pawnshop::create([
+            'arrahnu_type' => $request->arrahnu_type,
+            'arrahnu_name' => $request->arrahnu_name,
+            'margin' => $request->margin,
+            'loan_duration' => $request->loan_duration,
+            'agent_name' => $request->agent_name,
+            'agent_contact_num' => $request->agent_contact_num,
+            'email' => $request->email,
+            'hotline' => $request->hotline,
+            'address' => $request->address,
+            'coordinate' => $request->coordinate,
+            'operation_time' => $request->operation_time,
+            'user_id' => auth()->user()->id,
+            'safekeep_rate_id' => 1,
+        ]);
+
+        return redirect()->route('pawnshop.index');
     }
 
     /**
