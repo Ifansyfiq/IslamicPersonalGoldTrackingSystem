@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Zakat;
 use App\Http\Requests\StoreZakatRequest;
 use App\Http\Requests\UpdateZakatRequest;
+use App\Models\Gold;
 use Illuminate\Support\Facades\Auth;
 
 class ZakatController extends Controller
@@ -14,9 +15,18 @@ class ZakatController extends Controller
      */
     public function index()
     {
-    
-        return view('zakat.CalculateZakatPage');
+        // Get the current user's ID
+        $userId = Auth::id();
+
+        // Retrieve gold records for the current user
+        $golds = Gold::where('user_id', $userId)->get();
+
+        return view('zakat.CalculateZakatPage', [
+            'golds' => $golds,
+        ]);   // Pass all gold records to the view
+       
     }
+    
 
     /**
      * Show the form for creating a new resource.
