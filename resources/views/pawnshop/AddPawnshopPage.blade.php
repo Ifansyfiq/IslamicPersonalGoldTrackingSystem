@@ -28,7 +28,7 @@
                                 <div class="text-black font-semibold col-12 mt-2 pt-3">
                                     Safekeeping Rate
                                 </div>
-                                
+
                                 <div class="control-group col-12 mt-2 pt-3">
                                     <label for="margin">Margin :</label>
                                     <input type="text" id="margin" class="form-control" name="margin" required>
@@ -62,8 +62,8 @@
                                     <input type="text" id="hotline" class="form-control" name="hotline" required>
                                 </div>
                                 <div class="control-group col-12 mt-2 pt-3">
-                                    <label for="address ">Address :</label>
-                                    <input type="text" id="address " class="form-control" name="address " required>
+                                    <label for="address">Address :</label>
+                                    <input type="text" id="address" class="form-control" name="address" required>
                                 </div>
                                 <div class="control-group col-12 mt-2 pt-3">
                                     <label for="coordinate">Address coordinate :</label>
@@ -74,7 +74,7 @@
                                     <input type="text" id="operation_time" class="form-control" name="operation_time" required>
                                 </div>
                             </div>
-                            
+
                             <div class="row mt-2">
                                 <div class="control-group col-12 text-center">
                                     <button id="btn-submit" class="btn btn-primary">
