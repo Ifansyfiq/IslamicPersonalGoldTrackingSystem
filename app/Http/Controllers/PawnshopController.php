@@ -19,7 +19,7 @@ class PawnshopController extends Controller
 
         // Retrieve pawnshop records for the current user
         $pawnshops = Pawnshop::where('user_id', $userId)->get();
-        
+
         return view('pawnshop.ViewPawnshopPage', [
             'pawnshops' => $pawnshops,
         ]);
@@ -72,7 +72,11 @@ class PawnshopController extends Controller
      */
     public function edit(Pawnshop $pawnshop)
     {
-        //
+        if ($pawnshop->user_id == auth()->user()->id) {
+            return view('pawnshop.EditPawnshopPage', [
+                'pawnshop' => $pawnshop,
+            ]); 
+        }
     }
 
     /**
