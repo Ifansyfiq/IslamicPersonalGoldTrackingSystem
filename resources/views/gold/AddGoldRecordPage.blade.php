@@ -10,7 +10,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <h2 class="mb-2 mt-0 text-4xl font-semibold leading-tight text-primary">
+                <h2 class="mb-2 mt-4 text-4xl font-semibold leading-tight text-primary">
                     Add Records
                 </h2>
             </div>
