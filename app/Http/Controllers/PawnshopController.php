@@ -75,7 +75,7 @@ class PawnshopController extends Controller
         if ($pawnshop->user_id == auth()->user()->id) {
             return view('pawnshop.EditPawnshopPage', [
                 'pawnshop' => $pawnshop,
-            ]); 
+            ]);
         }
     }
 
@@ -84,7 +84,23 @@ class PawnshopController extends Controller
      */
     public function update(UpdatePawnshopRequest $request, Pawnshop $pawnshop)
     {
-        //
+        if ($pawnshop->user_id == auth()->user()->id) {
+            $pawnshop->update([
+                'arrahnu_type' => $request->arrahnu_type,
+                'arrahnu_name' => $request->arrahnu_name,
+                'margin' => $request->margin,
+                'loan_duration' => $request->loan_duration,
+                'agent_name' => $request->agent_name,
+                'agent_contact_num' => $request->agent_contact_num,
+                'email' => $request->email,
+                'hotline' => $request->hotline,
+                'address' => $request->address,
+                'coordinate' => $request->coordinate,
+                'operation_time' => $request->operation_time,
+            ]);
+        }
+
+        return redirect()->route('pawnshop.index');
     }
 
     /**

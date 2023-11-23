@@ -11,7 +11,7 @@ class UpdatePawnshopRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,17 @@ class UpdatePawnshopRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'arrahnu_type' => 'required|string',
+            'arrahnu_name' => 'required|string',
+            'margin' => 'required|string',
+            'loan_duration' => 'required|string',
+            'agent_name' => 'required|string',
+            'agent_contact_num' => 'required|string|',
+            'email' => 'required|string',
+            'hotline' => 'required|string',
+            'address' => 'required|string',
+            'coordinate' => 'required|string',
+            'operation_time' => 'required|string',
         ];
     }
 }
