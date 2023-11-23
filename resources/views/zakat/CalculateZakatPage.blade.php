@@ -7,53 +7,106 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="block mb-8">
-                <h2 class="text-black underline font-semibold ">Gold Zakat Calculation</h2>
+            <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                    <thead class="text-xs text-white uppercase bg-gray-800">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Gold Zakat Calculation
+                            </th>
+                            @for ($i = 0; $i < 3; $i++)<th scope="col" class="px-6 py-3">
+                                </th>
+                                @endfor
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b">
+                            <th class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="year">Year/Haul</label>
+                                    <select id="year" name="year" oninput="urufValue()">
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="uruf">Uruf Value(g)</label>
+                                    <input type="text" id="uruf" class="form-control" name="uruf" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="goldprice">Gold Price(RM)</label>
+                                    <input type="text" id="goldprice" class="form-control" name="goldprice" readonly>
+                                </div>
+                            </td>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                    <thead class="text-xs text-white uppercase bg-gray-800">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Add Gold
+                            </th>
+                            @for ($i = 0; $i < 3; $i++)<th scope="col" class="px-6 py-3">
+                                </th>
+                                @endfor
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b">
+                            <th class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="uruf">Gold Name</label>
+                                    <select id="goldname" name="goldname" oninput="goldWeight(this.value)">
+                                        @forelse ($golds as $gold)
+                                        <option value="{{ $gold->gold_name }}" data-weight="{{ $gold->weight }}">{{ $gold->gold_name }}</option>
+                                        @empty
+                                        <option value="">No gold available</option>
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="weight">Weight(g)</label>
+                                    <input type="text" id="weight" class="form-control" name="weight" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="type">Type</label>
+                                    <select id="type" name="type" oninput="changeUrufValue()">
+                                        <option value="wear">Wear</option>
+                                        <option value="keep">Keep</option>
+                                    </select>
+                                </div>
+                            </td>
+                            </th>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Value (RM)
+                            </th>
+                            <td class="px-6 py-4">
+                                <div>
+                                    id=value
+                                </div>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="flex flex-col">
-                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div>
-                            <label for="year">Year/Haul :</label>
-                            <select id="year" name="year" oninput="urufValue()">
-                                <option value="2023">2023</option>
-                                <option value="2022">2022</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="uruf">Uruf Value(g) :</label>
-                            <input type="text" id="uruf" class="form-control" name="uruf" readonly>
-                        </div>
-                        <div>
-                            <label for="goldprice">Gold Price(RM) :</label>
-                            <input type="text" id="goldprice" class="form-control" name="goldprice" readonly>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="block mb-8">
-                <h2 class="text-black underline font-semibold ">Add Gold</h2>
-            </div <div class="flex flex-col">
-            <div>
-                <label for="uruf">Gold Name :</label>
-                <select id="goldname" name="goldname" oninput="goldWeight(this.value)">
-                    @forelse ($golds as $gold)
-                    <option value="{{ $gold->gold_name }}" data-weight="{{ $gold->weight }}">{{ $gold->gold_name }}</option>
-                    @empty
-                    <option value="">No gold available</option>
-                    @endforelse
-                </select>
-            </div>
-            <div>
-                <label for="weight">Weight(g) :</label>
-                <input type="text" id="weight" class="form-control" name="weight" readonly>
-            </div>
-
         </div>
     </div>
-    </div>
+
     <script>
         function urufValue() {
             var x = document.getElementById("year").value;
@@ -84,6 +137,16 @@
             } else {
                 weightInput.value = "0"; // or any default value
             }
+        }
+
+        function changeUrufValue() {
+            var x = document.getElementById("type").value;
+            if (x == "wear") {
+                document.getElementById("uruf").value = "800";
+            } else if (x == "keep") {
+                document.getElementById("uruf").value = "85";
+            } else
+                document.getElementById("uruf").value = "0";
         }
     </script>
 
