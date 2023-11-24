@@ -32,7 +32,13 @@
                                         <th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
                                             Status
                                         </th>
-                                        @for ($i = 0; $i < 8; $i++)<th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            Date Created
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            Time Created
+                                        </th>
+                                        @for ($i = 0; $i < 2; $i++)<th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
                                             </th>
                                             @endfor
                                             <th scope="col" width="200" class="px-6 py-3 bg-gray-800">
@@ -65,7 +71,15 @@
                                             {{($gold->status)}}
                                         </td>
 
-                                        @for ($i = 0; $i < 8; $i++)<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{($gold->created_at->format('d-m-Y'))}}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{($gold->created_at->format('H:i A'))}}
+                                        </td>
+
+                                        @for ($i = 0; $i < 2; $i++)<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             </td>
                                             @endfor
 
