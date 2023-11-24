@@ -28,6 +28,21 @@
                         </tr>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Date Created
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->created_at->format('d-m-Y'))}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Time Created
+                            </th>
+                            <td class="px-6 py-4">
+                                {{($gold->created_at->format('H:i: A'))}}
+                            </td>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Gold Type
                             </th>
                             <td class="px-6 py-4">
