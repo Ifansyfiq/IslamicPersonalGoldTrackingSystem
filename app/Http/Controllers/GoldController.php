@@ -15,16 +15,22 @@ class GoldController extends Controller
      */
     public function index()
     {
-        // Get the current user's ID
-        $userId = Auth::id();
+        // Check if the user is authenticated
+        if (Auth::check()) {
+            // Get the current user's ID
+            $userId = Auth::id();
 
-        // Retrieve gold records for the current user
-        $golds = Gold::where('user_id', $userId)->get();
+            // Paginate gold records for the current user with 10 records per page
+            $golds = Gold::where('user_id', $userId)->paginate(10);
 
-        return view('gold.ViewGoldRecordPage', [
-            'golds' => $golds,
-        ]);   // Pass all gold records to the view
-
+            return view('gold.ViewGoldRecordPage', [
+                'golds' => $golds,
+            ]);
+        } else {
+            // Handle the case where the user is not authenticated
+            // Redirect to the login page or show an error message
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -47,7 +53,7 @@ class GoldController extends Controller
     {
         // Retrieve the gold type based on the selected gold_type_id
         $goldType = GoldType::findOrFail($request->gold_type_id);
-        
+
         //store a new post
         Gold::create([
             'gold_name' => $request->gold_name,
