@@ -41,7 +41,8 @@
                                         @for ($i = 0; $i < 2; $i++)<th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
                                             </th>
                                             @endfor
-                                            <th scope="col" width="200" class="px-6 py-3 bg-gray-800">
+                                            <th scope="col" width="200" class="px-6 py-3 bg-gray-800 text-white uppercase text-center">
+                                                Action
                                             </th>
                                     </tr>
                                 </thead>
