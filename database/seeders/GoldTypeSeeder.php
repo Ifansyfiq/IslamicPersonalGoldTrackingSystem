@@ -13,8 +13,9 @@ class GoldTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        GoldType::factory()
-                ->count(10)
-                ->create();
+        GoldType::create(['gold_type' => 'Gold Bar']);
+        GoldType::create(['gold_type' => 'Dinar']);
+        GoldType::create(['gold_type' => 'Jewellery']);
+        GoldType::create(['gold_type' => 'Others']);
     }
 }

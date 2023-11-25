@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('gold_types', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->enum('gold_type', ['Jewellery', 'Gold Bar', 'Dinar']);
+            $table->string('gold_type');
 
             $table->timestamps();
         });
