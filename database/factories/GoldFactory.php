@@ -20,10 +20,10 @@ class GoldFactory extends Factory
     {
         return [
             'gold_name' => $this->faker->word(),
-            'gold_purity' => $this->faker->randomElement(['10', '14', '18', '22', '24']),
+            'gold_purity' => $this->faker->word(),
             'weight' => $this->faker->randomDigitNotNull(),
             'buy_shop' => $this->faker->word(),
-            'status' => $this->faker->randomElement(['Buy', 'Sell', 'Hold', 'Gift', 'Pawn', 'Renew Pawn', 'Other']),
+            'status' =>  $this->faker->randomElement(['Buy', 'Sell', 'Hold', 'Gift', 'Pawn', 'Renew Pawn', 'Other']),
             'buy_price' => $this->faker->randomFloat(2, 10, 500.00),
             'sell_price' => $this->faker->randomFloat(2, 10, 500.00),
             'spread' => $this->faker->randomDigitNotNull(),
