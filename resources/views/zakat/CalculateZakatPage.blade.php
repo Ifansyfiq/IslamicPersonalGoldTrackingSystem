@@ -67,6 +67,7 @@
                                 <div>
                                     <label for="uruf">Gold Name</label>
                                     <select id="goldname" name="goldname" oninput="goldWeight(this.value)">
+                                        <option value="" disabled selected></option>
                                         @forelse ($golds as $gold)
                                         <option value="{{ $gold->gold_name }}" data-weight="{{ $gold->weight }}">{{ $gold->gold_name }}</option>
                                         @empty
