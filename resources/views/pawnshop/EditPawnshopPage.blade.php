@@ -43,6 +43,20 @@
                 <div class="px-2 py-2 mb-4 text-4xl bg-gray-800 text-white font-semibold leading-tight text-primary">
                     Safekeeping Rate
                 </div>
+                <div class="grid md:grid-cols-3 md:gap-6">
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="text" id="safekeep_rate1" name="safekeep_rate1" value="{{ $pawnshop->safekeep_rate1 }}" class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
+                        <label for="safekeep_rate1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First 2,000 & below</label>
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="text" id="safekeep_rate2" name="safekeep_rate2" value="{{ $pawnshop->safekeep_rate2 }}" class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
+                        <label for="safekeep_rate2" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">2,001 to 10,000</label>
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="text" id="safekeep_rate3" name="safekeep_rate3" value="{{ $pawnshop->safekeep_rate3 }}" class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
+                        <label for="safekeep_rate3" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Above 10,001</label>
+                    </div>
+                </div>
                 <div class="px-2 py-2 mb-4 text-4xl bg-gray-800 text-white font-semibold leading-tight text-primary">
                     Agents
                 </div>
@@ -56,6 +70,7 @@
                         <label for="agent_contact_num" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Contact num</label>
                     </div>
                 </div>
+                
                 <div class="px-2 py-2 mb-4 text-4xl bg-gray-800 text-white font-semibold leading-tight text-primary">
                     Contact Details
                 </div>
@@ -75,10 +90,6 @@
                     <div class="relative z-0 w-full mb-6 group">
                         <input type="text" id="coordinate" name="coordinate" value="{{ $pawnshop->coordinate }}" class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
                         <label for="coordinate" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Address coordinate</label>
-                    </div>
-                    <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" id="operation_time" name="operation_time" value="{{ $pawnshop->operation_time }}" class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
-                        <label for="operation_time" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Operation time</label>
                     </div>
                 </div>
                 <div class="flex items-center justify-center px-4 py-3 text-center sm:px-6">

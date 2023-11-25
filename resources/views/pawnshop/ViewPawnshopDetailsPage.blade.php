@@ -68,7 +68,7 @@
                                 First 2,000 & below
                             </th>
                             <td class="px-6 py-4 text-center">
-
+                                {{ $pawnshop->safekeep_rate1 }}
                             </td>
                         </tr>
                         <tr class="border-b">
@@ -76,7 +76,7 @@
                                 2,001 - 10,000
                             </th>
                             <td class="px-6 py-4 text-center">
-
+                                {{ $pawnshop->safekeep_rate2 }}
                             </td>
                         </tr>
                         <tr class="border-b">
@@ -84,7 +84,7 @@
                                 Above 10,001
                             </th>
                             <td class="px-6 py-4 text-center">
-
+                                {{ $pawnshop->safekeep_rate3 }}
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
@@ -106,7 +106,13 @@
                                 Operation time
                             </th>
                             <td class="px-6 py-4 text-center">
-                                {{ $pawnshop->operation_time }}
+                                Sunday: {{ date('h:i A', strtotime($pawnshop->sun_start)) }} - {{ date('h:i A', strtotime($pawnshop->sun_end)) }}<br>
+                                Monday: {{ date('h:i A', strtotime($pawnshop->mon_start)) }} - {{ date('h:i A', strtotime($pawnshop->mon_end)) }}<br>
+                                Tuesday: {{ date('h:i A', strtotime($pawnshop->tue_start)) }} - {{ date('h:i A', strtotime($pawnshop->tue_end)) }}<br>
+                                Wednesday: {{ date('h:i A', strtotime($pawnshop->wed_start)) }} - {{ date('h:i A', strtotime($pawnshop->wed_end)) }}<br>
+                                Thursday: {{ date('h:i A', strtotime($pawnshop->thu_start)) }} - {{ date('h:i A', strtotime($pawnshop->thu_end)) }}<br>
+                                Friday: {{ date('h:i A', strtotime($pawnshop->fri_start)) }} - {{ date('h:i A', strtotime($pawnshop->fri_end)) }}<br>
+                                Saturday: {{ date('h:i A', strtotime($pawnshop->sat_start)) }} - {{ date('h:i A', strtotime($pawnshop->sat_end)) }}<br>
                             </td>
                         </tr>
                         <tr class="border-b">

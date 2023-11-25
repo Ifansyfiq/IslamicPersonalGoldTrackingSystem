@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('safekeep_rate3');
             $table->string('agent_name');
             $table->string('agent_contact_num');
-            $table->time('sun_start');
-            $table->time('sun_end');
+            $table->string('sun_start');
+            $table->string('sun_end');
             $table->time('mon_start');
             $table->time('mon_end');
             $table->time('tue_start');
@@ -33,10 +33,10 @@ return new class extends Migration
             $table->time('wed_end');
             $table->time('thu_start');
             $table->time('thu_end');
-            $table->time('fri_start');
-            $table->time('fri_end');
-            $table->time('sat_start');
-            $table->time('sat_end');
+            $table->string('fri_start');
+            $table->string('fri_end');
+            $table->string('sat_start');
+            $table->string('sat_end');
             $table->string('email');
             $table->string('hotline');
             $table->string('address');
