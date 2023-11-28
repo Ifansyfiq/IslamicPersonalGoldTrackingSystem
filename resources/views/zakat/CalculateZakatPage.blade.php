@@ -8,6 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="relative overflow-x-auto">
+                <!-- Gold Zakat Calculation Table -->
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                     <thead class="text-xs text-white uppercase bg-gray-800">
                         <tr>
@@ -49,6 +50,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- Add Gold Table -->
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                     <thead class="text-xs text-white uppercase bg-gray-800">
                         <tr>
@@ -97,6 +99,20 @@
                             <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Value (RM)
                             </th>
+                            <td></td>
+                            <td></td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    id=value
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Total Zakat (RM)
+                            </th>
+                            <td></td>
+                            <td></td>
                             <td class="px-6 py-4">
                                 <div>
                                     id=value
@@ -104,6 +120,74 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- Gold Zakat Calculation Table -->
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                    <thead class="text-xs text-white uppercase bg-gray-800">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Gold Zakat Calculation Lists
+                            </th>
+                            @for ($i = 0; $i < 5; $i++)<th scope="col" class="px-6 py-3">
+                                </th>
+                                @endfor
+                        </tr>
+                    </thead>
+                    <thead class="bg-white border-b">
+                        <tr>
+                            <th scope="col" width='20' class="px-6 py-3">
+                                Gold Name
+                            </th>
+                            <th scope="col" width='20' class="px-6 py-3">
+                                Type
+                            </th>
+                            <th scope="col" width='20' class="px-6 py-3">
+                                Price(RM)
+                            </th>
+                            <th scope="col" width='20' class="px-6 py-3">
+                                Weight(g)
+                            </th>
+                            <th scope="col" width='20' class="px-6 py-3">
+                                Gold Value(RM)
+                            </th>
+                            <th scope="col" width='20' class="px-6 py-3">
+                                Zakat Price(RM)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4">
+                                Value (RM)
+                            </th>
+                            <td class="px-6 py-4">
+                                <div>
+                                    id=value
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    id=value
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    id=value
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    id=value
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    id=value
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>
