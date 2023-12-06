@@ -68,7 +68,7 @@
                             <td class="px-6 py-4">
                                 <div>
                                     <label for="uruf">Gold Name</label>
-                                    <select id="goldname" name="goldname" oninput="goldWeight(this.value)">
+                                    <select id="goldname" name="goldname" oninput="goldWeight(this.value), calcValueZakat()">
                                         <option value="" disabled selected></option>
                                         @forelse ($golds as $gold)
                                         <option value="{{ $gold->gold_name }}" data-weight="{{ $gold->weight }}">{{ $gold->gold_name }}</option>
@@ -87,7 +87,7 @@
                             <td class="px-6 py-4">
                                 <div>
                                     <label for="type">Type</label>
-                                    <select id="type" name="type" oninput="changeUrufValue()">
+                                    <select id="type" name="type" onchange="changeUrufValue()">
                                         <option value="wear">Wear</option>
                                         <option value="keep">Keep</option>
                                     </select>
@@ -103,7 +103,7 @@
                             <td></td>
                             <td class="px-6 py-4">
                                 <div>
-                                    id=value
+                                    <input type="text" id="value" class="form-control" name="value" readonly>
                                 </div>
                             </td>
                         </tr>
@@ -115,7 +115,7 @@
                             <td></td>
                             <td class="px-6 py-4">
                                 <div>
-                                    id=value
+                                    <input type="text" id="totalZakat" class="form-control" name="totalZakat" readonly>
                                 </div>
                         </tr>
                     </tbody>
@@ -157,7 +157,7 @@
                     <tbody>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4">
-                                Value (RM)
+                                id=value
                             </th>
                             <td class="px-6 py-4">
                                 <div>
@@ -232,6 +232,26 @@
                 document.getElementById("uruf").value = "85";
             } else
                 document.getElementById("uruf").value = "0";
+        }
+
+        function calcValueZakat() {
+            var goldprice = document.getElementById("goldprice").value;
+            var weight = document.getElementById("weight").value;
+            var uruf = document.getElementById("uruf").value;
+            var value = document.getElementById("value");
+            var type = document.getElementById("type").value;
+            var totalZakat = document.getElementById("totalZakat");
+
+            if (type == "wear") {
+                value.value = goldprice * weight;
+                totalZakat.value = (value.value * 2.5) / 100;
+            } else if (type == "keep") {
+                value.value = goldprice * weight;
+                totalZakat.value = (value.value * 2.5) / 100;
+            } else {
+                value.value = "0";
+                totalZakat.value = "0";
+            }
         }
     </script>
 
