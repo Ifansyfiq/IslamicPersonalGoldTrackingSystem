@@ -27,6 +27,7 @@
                                 <div>
                                     <label for="year">Year/Haul</label>
                                     <select id="year" name="year" oninput="urufValue()">
+                                        <option value="" disabled selected></option>
                                         <option value="2023">2023</option>
                                         <option value="2022">2022</option>
                                         <option value="2021">2021</option>
@@ -88,6 +89,7 @@
                                 <div>
                                     <label for="type">Type</label>
                                     <select id="type" name="type" onchange="changeUrufValue()">
+                                        <option value="" disabled selected></option>
                                         <option value="wear">Wear</option>
                                         <option value="keep">Keep</option>
                                     </select>
