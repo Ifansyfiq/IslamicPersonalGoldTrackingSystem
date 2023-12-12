@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             GoldSeeder::class,
             SafeKeepRateSeeder::class,
             PawnshopSeeder::class,
+            RoleSeeder::class,
         ]);
-
     }
 }

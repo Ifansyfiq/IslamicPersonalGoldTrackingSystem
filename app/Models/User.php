@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles;
 
 
     /**
@@ -74,10 +76,5 @@ class User extends Authenticatable
     public function pawnshop() //: \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Pawnshop::class);
-    }
-
-    public function role() 
-    {
-        return $this->hasOne(Role::class);
     }
 }
