@@ -8,7 +8,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="block mb-8">
+                @can('create', App\Models\Gold::class)
                 <a href="{{ route('gold.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Add Record</a>
+                @endcan
             </div>
             <div class="flex flex-col">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -85,13 +87,19 @@
                                             @endfor
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-right">
+                                                @can('view', $gold)
                                                 <a href="{{ route('gold.show', [$gold->id]) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
+                                                @endcan
+                                                @can('update', $gold)
                                                 <a href="{{ route('gold.edit', [$gold->id]) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
+                                                @endcan
+                                                @can('delete', $gold)
                                                 <form class="inline-block" action="{{ route('gold.destroy', [$gold->id]) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
                                                 </form>
+                                                @endcan
                                             </td>
                                     </tr>
                                     @php

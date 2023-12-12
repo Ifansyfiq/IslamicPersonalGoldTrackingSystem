@@ -13,7 +13,7 @@ class GoldPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->hasPermissionTo('list record');
     }
 
     /**
@@ -21,7 +21,7 @@ class GoldPolicy
      */
     public function view(User $user, Gold $gold): bool
     {
-        //
+        return $user->hasPermissionTo('view record');
     }
 
     /**
@@ -29,7 +29,7 @@ class GoldPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->hasPermissionTo('create record');
     }
 
     /**
@@ -37,7 +37,7 @@ class GoldPolicy
      */
     public function update(User $user, Gold $gold): bool
     {
-        //
+        return $user->hasPermissionTo('update record');
     }
 
     /**
@@ -45,7 +45,7 @@ class GoldPolicy
      */
     public function delete(User $user, Gold $gold): bool
     {
-        //
+        return $user->hasPermissionTo('delete record');
     }
 
     /**
@@ -53,7 +53,7 @@ class GoldPolicy
      */
     public function restore(User $user, Gold $gold): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -61,6 +61,6 @@ class GoldPolicy
      */
     public function forceDelete(User $user, Gold $gold): bool
     {
-        //
+        return false;
     }
 }

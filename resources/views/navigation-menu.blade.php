@@ -3,6 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
+
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -16,21 +17,27 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                @can('view-any', App\Models\Gold::class)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('gold.index') }}" :active="request()->routeIs('gold.index')">
                         {{ __('Record') }}
                     </x-nav-link>
                 </div>
+                @endcan
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('zakat.index') }}" :active="request()->routeIs('zakat.index')">
                         {{ __('Zakat') }}
                     </x-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('pawnshop.index') }}" :active="request()->routeIs('pawnshop.index')">
                         {{ __('Ar-Rahnu') }}
                     </x-nav-link>
                 </div>
+
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
