@@ -35,5 +35,7 @@ class UserSeeder extends Seeder
             'name' => 'Pawnshop',
             'email' => 'pawnshop@example.com',
         ]);
+
+        User::factory(5)->create();
     }
 }

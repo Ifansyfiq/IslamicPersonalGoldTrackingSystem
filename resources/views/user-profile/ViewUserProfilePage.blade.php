@@ -29,9 +29,6 @@
                                         <th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
                                             Role
                                         </th>
-                                        <!-- @for ($i = 0; $i < 2; $i++)<th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                            </th>
-                                            @endfor -->
                                         <th scope="col" width="200" class="px-6 py-3 bg-gray-800 text-white uppercase text-center">
                                             Action
                                         </th>
@@ -59,15 +56,11 @@
                                             {{($user->email)}}
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            5
+                                        <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{($user->roles->pluck('name')->implode(' '))}}
                                         </td>
 
-                                        <!-- @for ($i = 0; $i < 2; $i++)<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            </td>
-                                            @endfor -->
-
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-right">
+                                        <td class="px-6 py-6 whitespace-nowrap text-sm font-medium text-center">
                                             <form action="{{ route('user.index') }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -83,7 +76,7 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                            
+                            {{ $users->links() }}
                         </div>
                     </div>
                 </div>
