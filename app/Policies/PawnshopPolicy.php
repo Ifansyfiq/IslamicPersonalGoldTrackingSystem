@@ -13,7 +13,7 @@ class PawnshopPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->hasPermissionTo('list pawnshop');
     }
 
     /**
@@ -21,7 +21,7 @@ class PawnshopPolicy
      */
     public function view(User $user, Pawnshop $pawnshop): bool
     {
-        //
+        return $user->hasPermissionTo('view pawnshop');
     }
 
     /**
@@ -29,7 +29,7 @@ class PawnshopPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->hasPermissionTo('create pawnshop');
     }
 
     /**
@@ -37,7 +37,7 @@ class PawnshopPolicy
      */
     public function update(User $user, Pawnshop $pawnshop): bool
     {
-        //
+        return $user->hasPermissionTo('update pawnshop');
     }
 
     /**
@@ -45,7 +45,7 @@ class PawnshopPolicy
      */
     public function delete(User $user, Pawnshop $pawnshop): bool
     {
-        //
+        return $user->hasPermissionTo('delete pawnshop');
     }
 
     /**
@@ -53,7 +53,7 @@ class PawnshopPolicy
      */
     public function restore(User $user, Pawnshop $pawnshop): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -61,6 +61,6 @@ class PawnshopPolicy
      */
     public function forceDelete(User $user, Pawnshop $pawnshop): bool
     {
-        //
+        return false;
     }
 }
