@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GoldController;
 use App\Http\Controllers\PawnshopController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZakatController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +34,6 @@ Route::middleware([
     Route::resource('gold', GoldController::class);
     Route::resource('zakat', ZakatController::class);
     Route::resource('pawnshop', PawnshopController::class);
+    Route::resource('user', UserController::class);
 
 });
