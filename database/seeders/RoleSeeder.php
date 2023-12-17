@@ -38,9 +38,16 @@ class RoleSeeder extends Seeder
             'delete pawnshop',
         ];
 
+        // Define permission for manage user profile record
+        $manageUserProfilePermissions = [
+            'list profile',
+            'delete profile',
+        ];
+
         $permissionArrays = [
             $manageGoldRecordPermissions,
             $managePawnshopPermissions,
+            $manageUserProfilePermissions,
         ];
 
         // Create all permissions
@@ -64,7 +71,8 @@ class RoleSeeder extends Seeder
         // Define roles with respective permissions
         $rolesAndPermissions = [
             'Admin' => array_merge(
-                $managePawnshopPermissions
+                $managePawnshopPermissions,
+                $manageUserProfilePermissions
             ),
             'User' => array_merge(
                 $manageGoldRecordPermissions,

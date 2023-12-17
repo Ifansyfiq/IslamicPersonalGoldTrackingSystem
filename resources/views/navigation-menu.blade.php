@@ -18,11 +18,13 @@
                     </x-nav-link>
                 </div>
 
+                @can('view-any', App\Models\User::class)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.index')">
                         {{ __('Profile') }}
                     </x-nav-link>
                 </div>
+                @endcan
 
                 @can('view-any', App\Models\Gold::class)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
