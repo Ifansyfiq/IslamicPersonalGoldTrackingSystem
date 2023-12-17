@@ -17,4 +17,15 @@ class UserController extends Controller
             'users' => $users,
         ]);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(User $user)
+    {
+        // Delete the user
+        $user->delete();
+
+        return redirect()->route('user.index');
+    }
 }
