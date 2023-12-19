@@ -8,14 +8,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="relative overflow-x-auto">
-                <!-- Gold Zakat Calculation Table -->
+                <!-- Wear Gold Table -->
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                     <thead class="text-xs text-white uppercase bg-gray-800">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Gold Zakat Calculation
+                                Wear Gold
                             </th>
-                            @for ($i = 0; $i < 3; $i++)<th scope="col" class="px-6 py-3">
+                            @for ($i = 0; $i < 4; $i++)<th scope="col" class="px-6 py-3">
                                 </th>
                                 @endfor
                         </tr>
@@ -37,6 +37,12 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div>
+                                    <label for="weight">Weight(g)</label>
+                                    <input type="text" id="weight" class="form-control" name="weight" oninput="calcValueZakat()">
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
                                     <label for="uruf">Uruf Value(g)</label>
                                     <input type="text" id="uruf" class="form-control" name="uruf" readonly>
                                 </div>
@@ -51,52 +57,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <!-- Add Gold Table -->
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                    <thead class="text-xs text-white uppercase bg-gray-800">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Add Gold
-                            </th>
-                            @for ($i = 0; $i < 3; $i++)<th scope="col" class="px-6 py-3">
-                                </th>
-                                @endfor
-                        </tr>
-                    </thead>
                     <tbody>
-                        <tr class="bg-white border-b">
-                            <th class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                            <td class="px-6 py-4">
-                                <div>
-                                    <label for="uruf">Gold Name</label>
-                                    <select id="goldname" name="goldname" oninput="goldWeight(this.value), calcValueZakat()">
-                                        <option value="" disabled selected></option>
-                                        @forelse ($golds as $gold)
-                                        <option value="{{ $gold->gold_name }}" data-weight="{{ $gold->weight }}">{{ $gold->gold_name }}</option>
-                                        @empty
-                                        <option value="">No gold available</option>
-                                        @endforelse
-                                    </select>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div>
-                                    <label for="weight">Weight(g)</label>
-                                    <input type="text" id="weight" class="form-control" name="weight" readonly>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div>
-                                    <label for="type">Type</label>
-                                    <select id="type" name="type" onchange="changeUrufValue()">
-                                        <option value="" disabled selected></option>
-                                        <option value="wear">Wear</option>
-                                        <option value="keep">Keep</option>
-                                    </select>
-                                </div>
-                            </td>
-                            </th>
-                        </tr>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Value (RM)
@@ -122,73 +84,84 @@
                         </tr>
                     </tbody>
                 </table>
-                <!-- Gold Zakat Calculation Table -->
+
+                <!-- Keep Gold Table -->
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                     <thead class="text-xs text-white uppercase bg-gray-800">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Gold Zakat Calculation Lists
+                                Keep Gold
                             </th>
-                            @for ($i = 0; $i < 5; $i++)<th scope="col" class="px-6 py-3">
+                            @for ($i = 0; $i < 4; $i++)<th scope="col" class="px-6 py-3">
                                 </th>
                                 @endfor
                         </tr>
                     </thead>
-                    <thead class="bg-white border-b">
-                        <tr>
-                            <th scope="col" width='20' class="px-6 py-3">
-                                Gold Name
-                            </th>
-                            <th scope="col" width='20' class="px-6 py-3">
-                                Type
-                            </th>
-                            <th scope="col" width='20' class="px-6 py-3">
-                                Price(RM)
-                            </th>
-                            <th scope="col" width='20' class="px-6 py-3">
-                                Weight(g)
-                            </th>
-                            <th scope="col" width='20' class="px-6 py-3">
-                                Gold Value(RM)
-                            </th>
-                            <th scope="col" width='20' class="px-6 py-3">
-                                Zakat Price(RM)
-                            </th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr class="bg-white border-b">
-                            <th scope="row" class="px-6 py-4">
-                                id=value
+                            <th class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="year2">Year/Haul</label>
+                                    <select id="year2" name="year2" oninput="urufValue2()">
+                                        <option value="" disabled selected></option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="weight2">Weight(g)</label>
+                                    <input type="text" id="weight2" class="form-control" name="weight2" oninput="calcValueZakat2()">
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="uruf2">Uruf Value(g)</label>
+                                    <input type="text" id="uruf2" class="form-control" name="uruf2" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <label for="goldprice2">Gold Price(RM)</label>
+                                    <input type="text" id="goldprice2" class="form-control" name="goldprice2" readonly>
+                                </div>
+                            </td>
                             </th>
-                            <td class="px-6 py-4">
-                                <div>
-                                    id=value
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div>
-                                    id=value
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div>
-                                    id=value
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div>
-                                    id=value
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div>
-                                    id=value
-                                </div>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                    <tbody>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Value (RM)
+                            </th>
+                            <td></td>
+                            <td></td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <input type="text" id="value2" class="form-control" name="value2" readonly>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Total Zakat (RM)
+                            </th>
+                            <td></td>
+                            <td></td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <input type="text" id="totalZakat2" class="form-control" name="totalZakat2" readonly>
+                                </div>
+                        </tr>
+                    </tbody>
+                </table>
+
 
             </div>
         </div>
@@ -213,47 +186,50 @@
                 document.getElementById("uruf").value = "0";
         }
 
-        function goldWeight(selectedGold) {
-            var weightInput = document.getElementById("weight");
-            var selectedOption = document.querySelector("#goldname option:checked");
-
-            if (selectedOption) {
-                // Use the data-weight attribute of the selected option
-                var selectedWeight = selectedOption.getAttribute("data-weight");
-                weightInput.value = selectedWeight || "";
-            } else {
-                weightInput.value = "0"; // or any default value
-            }
-        }
-
-        function changeUrufValue() {
-            var x = document.getElementById("type").value;
-            if (x == "wear") {
-                document.getElementById("uruf").value = "800";
-            } else if (x == "keep") {
-                document.getElementById("uruf").value = "85";
-            } else
-                document.getElementById("uruf").value = "0";
-        }
-
         function calcValueZakat() {
-            var goldprice = document.getElementById("goldprice").value;
             var weight = document.getElementById("weight").value;
             var uruf = document.getElementById("uruf").value;
-            var value = document.getElementById("value");
-            var type = document.getElementById("type").value;
-            var totalZakat = document.getElementById("totalZakat");
+            var goldPrice = document.getElementById("goldprice").value;
 
-            if (type == "wear") {
-                value.value = goldprice * weight;
-                totalZakat.value = (value.value * 2.5) / 100;
-            } else if (type == "keep") {
-                value.value = goldprice * weight;
-                totalZakat.value = (value.value * 2.5) / 100;
-            } else {
-                value.value = "0";
-                totalZakat.value = "0";
-            }
+            // calculate gold value
+            var goldValue = weight * goldPrice;
+            document.getElementById("value").value = goldValue.toFixed(2);
+
+            // calculate zakat price
+            var zakatPrice = goldValue * 0.025;
+            document.getElementById("totalZakat").value = zakatPrice.toFixed(2);
+        }
+
+        function urufValue2() {
+            var x = document.getElementById("year2").value;
+            if (x == "2023") {
+                document.getElementById("uruf2").value = "85";
+                document.getElementById("goldprice2").value = "254.42";
+            } else if (x == "2022") {
+                document.getElementById("uruf2").value = "85";
+                document.getElementById("goldprice2").value = "239.55";
+            } else if (x == "2021") {
+                document.getElementById("uruf2").value = "85";
+                document.getElementById("goldprice2").value = "238.81";
+            } else if (x == "2020") {
+                document.getElementById("uruf2").value = "85";
+                document.getElementById("goldprice2").value = "164.33";
+            } else
+                document.getElementById("uruf2").value = "0";
+        }
+
+        function calcValueZakat2() {
+            var weight = document.getElementById("weight2").value;
+            var uruf = document.getElementById("uruf2").value;
+            var goldPrice = document.getElementById("goldprice2").value;
+
+            // calculate gold value
+            var goldValue = weight * goldPrice;
+            document.getElementById("value2").value = goldValue.toFixed(2);
+
+            // calculate zakat price
+            var zakatPrice = goldValue * 0.025;
+            document.getElementById("totalZakat2").value = zakatPrice.toFixed(2);
         }
     </script>
 
