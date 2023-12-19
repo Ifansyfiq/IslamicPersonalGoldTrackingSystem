@@ -25,8 +25,8 @@
                             <th class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                             <td class="px-6 py-4">
                                 <div>
-                                    <label for="year">Year/Haul</label>
-                                    <select id="year" name="year" oninput="urufValue()">
+                                    <label for="yearW">Year/Haul</label>
+                                    <select id="yearW" name="yearW" oninput="urufValueWear()">
                                         <option value="" disabled selected></option>
                                         <option value="2023">2023</option>
                                         <option value="2022">2022</option>
@@ -37,20 +37,20 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <label for="weight">Weight(g)</label>
-                                    <input type="text" id="weight" class="form-control" name="weight" oninput="calcValueZakat()">
+                                    <label for="weightW">Weight(g)</label>
+                                    <input type="text" id="weightW" class="form-control" name="weightW" oninput="calcValueZakatWear()">
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <label for="uruf">Uruf Value(g)</label>
-                                    <input type="text" id="uruf" class="form-control" name="uruf" readonly>
+                                    <label for="urufW">Uruf Value(g)</label>
+                                    <input type="text" id="urufW" class="form-control" name="urufW" readonly>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <label for="goldprice">Gold Price(RM)</label>
-                                    <input type="text" id="goldprice" class="form-control" name="goldprice" readonly>
+                                    <label for="goldpriceW">Gold Price(RM)</label>
+                                    <input type="text" id="goldpriceW" class="form-control" name="goldpriceW" readonly>
                                 </div>
                             </td>
                             </th>
@@ -67,7 +67,7 @@
                             <td></td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <input type="text" id="value" class="form-control" name="value" readonly>
+                                    <input type="text" id="valueW" class="form-control" name="valueW" readonly>
                                 </div>
                             </td>
                         </tr>
@@ -79,7 +79,7 @@
                             <td></td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <input type="text" id="totalZakat" class="form-control" name="totalZakat" readonly>
+                                    <input type="text" id="totalZakatW" class="form-control" name="totalZakatW" readonly>
                                 </div>
                         </tr>
                     </tbody>
@@ -102,8 +102,8 @@
                             <th class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                             <td class="px-6 py-4">
                                 <div>
-                                    <label for="year2">Year/Haul</label>
-                                    <select id="year2" name="year2" oninput="urufValue2()">
+                                    <label for="yearK">Year/Haul</label>
+                                    <select id="yearK" name="yearK" oninput="urufValueKeep()">
                                         <option value="" disabled selected></option>
                                         <option value="2023">2023</option>
                                         <option value="2022">2022</option>
@@ -114,20 +114,20 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <label for="weight2">Weight(g)</label>
-                                    <input type="text" id="weight2" class="form-control" name="weight2" oninput="calcValueZakat2()">
+                                    <label for="weightK">Weight(g)</label>
+                                    <input type="text" id="weightK" class="form-control" name="weightK" oninput="calcValueZakatKeep()">
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <label for="uruf2">Uruf Value(g)</label>
-                                    <input type="text" id="uruf2" class="form-control" name="uruf2" readonly>
+                                    <label for="urufK">Uruf Value(g)</label>
+                                    <input type="text" id="urufK" class="form-control" name="urufK" readonly>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <label for="goldprice2">Gold Price(RM)</label>
-                                    <input type="text" id="goldprice2" class="form-control" name="goldprice2" readonly>
+                                    <label for="goldpriceK">Gold Price(RM)</label>
+                                    <input type="text" id="goldpriceK" class="form-control" name="goldpriceK" readonly>
                                 </div>
                             </td>
                             </th>
@@ -144,7 +144,7 @@
                             <td></td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <input type="text" id="value2" class="form-control" name="value2" readonly>
+                                    <input type="text" id="valueK" class="form-control" name="valueK" readonly>
                                 </div>
                             </td>
                         </tr>
@@ -156,7 +156,7 @@
                             <td></td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <input type="text" id="totalZakat2" class="form-control" name="totalZakat2" readonly>
+                                    <input type="text" id="totalZakatK" class="form-control" name="totalZakatK" readonly>
                                 </div>
                         </tr>
                     </tbody>
@@ -168,68 +168,72 @@
     </div>
 
     <script>
-        function urufValue() {
-            var x = document.getElementById("year").value;
+        // for wear gold
+        function urufValueWear() {
+            var x = document.getElementById("yearW").value;
             if (x == "2023") {
-                document.getElementById("uruf").value = "800";
-                document.getElementById("goldprice").value = "254.42";
+                document.getElementById("urufW").value = "800";
+                document.getElementById("goldpriceW").value = "254.42";
             } else if (x == "2022") {
-                document.getElementById("uruf").value = "800";
-                document.getElementById("goldprice").value = "239.55";
+                document.getElementById("urufW").value = "800";
+                document.getElementById("goldpriceW").value = "239.55";
             } else if (x == "2021") {
-                document.getElementById("uruf").value = "800";
-                document.getElementById("goldprice").value = "238.81";
+                document.getElementById("urufW").value = "800";
+                document.getElementById("goldpriceW").value = "238.81";
             } else if (x == "2020") {
-                document.getElementById("uruf").value = "800";
-                document.getElementById("goldprice").value = "164.33";
+                document.getElementById("urufW").value = "800";
+                document.getElementById("goldpriceW").value = "164.33";
             } else
-                document.getElementById("uruf").value = "0";
+                document.getElementById("urufW").value = "0";
         }
 
-        function calcValueZakat() {
-            var weight = document.getElementById("weight").value;
-            var uruf = document.getElementById("uruf").value;
-            var goldPrice = document.getElementById("goldprice").value;
+        // for wear gold
+        function calcValueZakatWear() {
+            var weight = document.getElementById("weightW").value;
+            var uruf = document.getElementById("urufW").value;
+            var goldPrice = document.getElementById("goldpriceW").value;
 
             // calculate gold value
             var goldValue = weight * goldPrice;
-            document.getElementById("value").value = goldValue.toFixed(2);
+            document.getElementById("valueW").value = goldValue.toFixed(2);
 
             // calculate zakat price
             var zakatPrice = goldValue * 0.025;
-            document.getElementById("totalZakat").value = zakatPrice.toFixed(2);
+            document.getElementById("totalZakatW").value = zakatPrice.toFixed(2);
         }
 
-        function urufValue2() {
-            var x = document.getElementById("year2").value;
+        // for keep gold
+        function urufValueKeep() {
+            var x = document.getElementById("yearK").value;
             if (x == "2023") {
-                document.getElementById("uruf2").value = "85";
-                document.getElementById("goldprice2").value = "254.42";
+                document.getElementById("urufK").value = "85";
+                document.getElementById("goldpriceK").value = "254.42";
             } else if (x == "2022") {
-                document.getElementById("uruf2").value = "85";
-                document.getElementById("goldprice2").value = "239.55";
+                document.getElementById("urufK").value = "85";
+                document.getElementById("goldpriceK").value = "239.55";
             } else if (x == "2021") {
-                document.getElementById("uruf2").value = "85";
-                document.getElementById("goldprice2").value = "238.81";
+                document.getElementById("urufK").value = "85";
+                document.getElementById("goldpriceK").value = "238.81";
             } else if (x == "2020") {
-                document.getElementById("uruf2").value = "85";
-                document.getElementById("goldprice2").value = "164.33";
+                document.getElementById("urufK").value = "85";
+                document.getElementById("goldpriceK").value = "164.33";
             } else
-                document.getElementById("uruf2").value = "0";
+                document.getElementById("urufK").value = "0";
         }
 
-        function calcValueZakat2() {
-            var weight = document.getElementById("weight2").value;
-            var uruf = document.getElementById("uruf2").value;
-            var goldPrice = document.getElementById("goldprice2").value;
+        // for keep gold
+        function calcValueZakatKeep() {
+            var weight = document.getElementById("weightK").value;
+            var uruf = document.getElementById("urufK").value;
+            var goldPrice = document.getElementById("goldpriceK").value;
 
             // calculate gold value
             var goldValue = weight * goldPrice;
-            document.getElementById("value2").value = goldValue.toFixed(2);
+            document.getElementById("valueK").value = goldValue.toFixed(2);
 
             // calculate zakat price
             var zakatPrice = goldValue * 0.025;
-            document.getElementById("totalZakat2").value = zakatPrice.toFixed(2);
+            document.getElementById("totalZakatK").value = zakatPrice.toFixed(2);
         }
     </script>
 
