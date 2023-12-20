@@ -26,8 +26,8 @@
                                 <th class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                 <td class="px-6 py-4">
                                     <div>
-                                        <label for="yearW">Year/Haul</label>
-                                        <select id="yearW" name="yearW" oninput="goldValueWear()">
+                                        <x-label for="yearW">Year / Haul</x-label>
+                                        <select id="yearW" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="yearW" oninput="goldValueWear()">
                                             <option value="" disabled selected></option>
                                             <option value="2023">2023</option>
                                             <option value="2022">2022</option>
@@ -44,8 +44,8 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <label for="goldpriceW">Gold Price(RM)</label>
-                                        <input type="text" id="goldpriceW" class="form-control" name="goldpriceW" readonly>
+                                        <x-label for="goldpriceW">Gold Price(RM)</x-label>
+                                        <x-input type="text" id="goldpriceW" class="form-control" name="goldpriceW" readonly />
                                     </div>
                                 </td>
                                 </th>
@@ -57,8 +57,8 @@
                             <tr class="bg-white border-b">
                                 <th></th>
                                 <td>
-                                    <label for="locationW">Year/Haul</label>
-                                    <select id="locationW" name="locationW" oninput="urufValueWear()">
+                                    <x-label for="locationW">Location</x-label>
+                                    <select id="locationW" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="locationW" oninput="urufValueWear()">
                                         <option value="" disabled selected></option>
                                         <option value="Johor">Johor</option>
                                         <option value="Kedah">Kedah</option>
@@ -79,8 +79,8 @@
                                 <td></td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <label for="urufW">Uruf Value(g)</label>
-                                        <input type="text" id="urufW" class="form-control" name="urufW" readonly>
+                                        <x-label for="urufW">Uruf Value(g)</x-label>
+                                        <x-input type="text" id="urufW" class="form-control" name="urufW" readonly />
                                     </div>
                                 </td>
                             </tr>
@@ -92,7 +92,7 @@
                                 <td></td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <input type="text" id="weightW" class="form-control" name="weightW" oninput="calcValueZakatWear()">
+                                        <x-input type="text" id="weightW" class="form-control" name="weightW" oninput="calcValueZakatWear()" />
                                     </div>
                                 </td>
                             </tr>
@@ -104,7 +104,7 @@
                                 <td></td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <input type="text" id="valueW" class="form-control" name="valueW" readonly>
+                                        <x-input type="text" id="valueW" class="form-control" name="valueW" readonly />
                                     </div>
                                 </td>
                             </tr>
@@ -116,7 +116,7 @@
                                 <td></td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <input type="text" id="totalZakatW" class="form-control" name="totalZakatW" readonly>
+                                        <x-input type="text" id="totalZakatW" class="form-control" name="totalZakatW" readonly />
                                     </div>
                             </tr>
                         </tbody>
@@ -139,8 +139,8 @@
                                 <th class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                 <td class="px-6 py-4">
                                     <div>
-                                        <label for="yearK">Year/Haul</label>
-                                        <select id="yearK" name="yearK" oninput="urufValueKeep()">
+                                        <x-label for="yearK">Year/Haul</x-label>
+                                        <select id="yearK" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="yearK" oninput="urufValueKeep()">
                                             <option value="" disabled selected></option>
                                             <option value="2023">2023</option>
                                             <option value="2022">2022</option>
@@ -154,19 +154,18 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <label for="urufK">Uruf Value(g)</label>
-                                        <input type="text" id="urufK" class="form-control" name="urufK" readonly>
+                                        <x-label for="urufK">Uruf Value(g)</x-label>
+                                        <x-input type="text" id="urufK" class="form-control" name="urufK" readonly />
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <label for="goldpriceK">Gold Price(RM)</label>
-                                        <input type="text" id="goldpriceK" class="form-control" name="goldpriceK" readonly>
+                                        <x-label for="goldpriceK">Gold Price(RM)</x-label>
+                                        <x-input type="text" id="goldpriceK" class="form-control" name="goldpriceK" readonly />
                                     </div>
                                 </td>
                                 </th>
                             </tr>
-
                         </tbody>
                     </table>
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -179,7 +178,7 @@
                                 <td></td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <input type="text" id="weightK" class="form-control" name="weightK" oninput="calcValueZakatKeep()">
+                                        <x-input type="text" id="weightK" class="form-control" name="weightK" oninput="calcValueZakatKeep()" />
                                     </div>
                                 </td>
                             </tr>
@@ -191,7 +190,7 @@
                                 <td></td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <input type="text" id="valueK" class="form-control" name="valueK" readonly>
+                                        <x-input type="text" id="valueK" class="form-control" name="valueK" readonly />
                                     </div>
                                 </td>
                             </tr>
@@ -203,7 +202,7 @@
                                 <td></td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <input type="text" id="totalZakatK" class="form-control" name="totalZakatK" readonly>
+                                        <x-input type="text" id="totalZakatK" class="form-control" name="totalZakatK" readonly />
                                     </div>
                                 </td>
                             </tr>
