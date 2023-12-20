@@ -27,7 +27,7 @@
                                 <td class="px-6 py-4">
                                     <div>
                                         <label for="yearW">Year/Haul</label>
-                                        <select id="yearW" name="yearW" oninput="urufValueWear()">
+                                        <select id="yearW" name="yearW" oninput="goldValueWear()">
                                             <option value="" disabled selected></option>
                                             <option value="2023">2023</option>
                                             <option value="2022">2022</option>
@@ -37,16 +37,10 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <div>
-                                        <label for="weightW">Weight(g)</label>
-                                        <input type="text" id="weightW" class="form-control" name="weightW" oninput="calcValueZakatWear()">
-                                    </div>
+                                    <div></div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <div>
-                                        <label for="urufW">Uruf Value(g)</label>
-                                        <input type="text" id="urufW" class="form-control" name="urufW" readonly>
-                                    </div>
+                                    <div></div>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div>
@@ -60,6 +54,48 @@
                     </table>
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                         <tbody>
+                            <tr class="bg-white border-b">
+                                <th></th>
+                                <td>
+                                    <label for="locationW">Year/Haul</label>
+                                    <select id="locationW" name="locationW" oninput="urufValueWear()">
+                                        <option value="" disabled selected></option>
+                                        <option value="Johor">Johor</option>
+                                        <option value="Kedah">Kedah</option>
+                                        <option value="Kelantan">Kelantan</option>
+                                        <option value="Melaka">Melaka</option>
+                                        <option value="Kuala Lumpur dan Putrajaya">Kuala Lumpur dan Putrajaya</option>
+                                        <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                        <option value="Pahang">Pahang</option>
+                                        <option value="Perak">Perak</option>
+                                        <option value="Perlis">Perlis</option>
+                                        <option value="Pulau Pinang">Pulau Pinang</option>
+                                        <option value="Sabah">Sabah</option>
+                                        <option value="Sarawak">Sarawak</option>
+                                        <option value="Selangor">Selangor</option>
+                                        <option value="Terengganu">Terengganu</option>
+                                    </select>
+                                </td>
+                                <td></td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <label for="urufW">Uruf Value(g)</label>
+                                        <input type="text" id="urufW" class="form-control" name="urufW" readonly>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-black">
+                                    Weight(g)
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <input type="text" id="weightW" class="form-control" name="weightW" oninput="calcValueZakatWear()">
+                                    </div>
+                                </td>
+                            </tr>
                             <tr class="bg-white border-b">
                                 <th scope="row" class="px-6 py-4 font-medium text-black">
                                     Value (RM)
@@ -114,10 +150,7 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <div>
-                                        <label for="weightK">Weight(g)</label>
-                                        <input type="text" id="weightK" class="form-control" name="weightK" oninput="calcValueZakatKeep()">
-                                    </div>
+                                    <div> </div>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div>
@@ -133,10 +166,23 @@
                                 </td>
                                 </th>
                             </tr>
+
                         </tbody>
                     </table>
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                         <tbody>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-black">
+                                    Weight(g)
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <input type="text" id="weightK" class="form-control" name="weightK" oninput="calcValueZakatKeep()">
+                                    </div>
+                                </td>
+                            </tr>
                             <tr class="bg-white border-b">
                                 <th scope="row" class="px-6 py-4 font-medium text-black">
                                     Value (RM)
@@ -164,10 +210,10 @@
                         </tbody>
                     </table>
                     <div class="flex items-center justify-center px-4 py-3 text-center sm:px-6">
-                    <button <a href="#" onclick="window.print()" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
-                        Print
-                    </button>
-                    <input type="reset" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                        <button <a href="#" onclick="window.print()" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                            Print
+                        </button>
+                        <input type="reset" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                     </div>
                 </form>
             </div>
@@ -176,20 +222,50 @@
 
     <script>
         // for wear gold
-        function urufValueWear() {
+        function goldValueWear() {
             var x = document.getElementById("yearW").value;
             if (x == "2023") {
-                document.getElementById("urufW").value = "800";
                 document.getElementById("goldpriceW").value = "254.42";
             } else if (x == "2022") {
-                document.getElementById("urufW").value = "800";
                 document.getElementById("goldpriceW").value = "239.55";
             } else if (x == "2021") {
-                document.getElementById("urufW").value = "800";
                 document.getElementById("goldpriceW").value = "238.81";
             } else if (x == "2020") {
-                document.getElementById("urufW").value = "800";
                 document.getElementById("goldpriceW").value = "164.33";
+            } else
+                document.getElementById("goldpriceW").value = "0";
+        }
+
+        function urufValueWear() {
+            var x = document.getElementById("locationW").value;
+            if (x == "Johor") {
+                document.getElementById("urufW").value = "850";
+            } else if (x == "Kedah") {
+                document.getElementById("urufW").value = "170";
+            } else if (x == "Kelantan") {
+                document.getElementById("urufW").value = "0";
+            } else if (x == "Melaka") {
+                document.getElementById("urufW").value = "180";
+            } else if (x == "Kuala Lumpur dan Putrajaya") {
+                document.getElementById("urufW").value = "200";
+            } else if (x == "Negeri Sembilan") {
+                document.getElementById("urufW").value = "170";
+            } else if (x == "Pahang") {
+                document.getElementById("urufW").value = "500";
+            } else if (x == "Perak") {
+                document.getElementById("urufW").value = "500";
+            } else if (x == "Perlis") {
+                document.getElementById("urufW").value = "85";
+            } else if (x == "Pulau Pinang") {
+                document.getElementById("urufW").value = "165";
+            } else if (x == "Sabah") {
+                document.getElementById("urufW").value = "152";
+            } else if (x == "Sarawak") {
+                document.getElementById("urufW").value = "90";
+            } else if (x == "Selangor") {
+                document.getElementById("urufW").value = "800";
+            } else if (x == "Terengganu") {
+                document.getElementById("urufW").value = "850";
             } else
                 document.getElementById("urufW").value = "0";
         }
