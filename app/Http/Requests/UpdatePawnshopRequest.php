@@ -49,7 +49,6 @@ class UpdatePawnshopRequest extends FormRequest
             'hotline' => 'required|string',
             'address' => 'required|string',
             'coordinate' => 'required|string',
-            'operation_time' => 'required|string',
         ];
     }
 }
