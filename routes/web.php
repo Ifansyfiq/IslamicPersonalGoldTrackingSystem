@@ -33,6 +33,7 @@ Route::middleware([
 
     Route::resource('gold', GoldController::class);
     Route::resource('zakat', ZakatController::class);
+    Route::get('pawhshop/website', [PawnshopController::class, 'website'])->name('pawnshop.website');
     Route::resource('pawnshop', PawnshopController::class);
     Route::resource('user', UserController::class);
 

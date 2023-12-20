@@ -25,6 +25,11 @@ class PawnshopController extends Controller
         ]);
     }
 
+    public function website()
+    {
+        return redirect()->away('https://www.arrahnuyapeim.net/');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
