@@ -205,7 +205,7 @@
                 alertDisplayed = false;
 
                 // calculate gold value
-                var goldValue = weight * goldPrice;
+                var goldValue = (weight - uruf) * goldPrice;
                 document.getElementById("valueW").value = goldValue.toFixed(2);
 
                 // calculate zakat price
