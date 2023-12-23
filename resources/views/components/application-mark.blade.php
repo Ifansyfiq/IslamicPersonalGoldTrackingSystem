@@ -1,1 +1,1 @@
-<img src="{{ asset('/images/logo/myGoldTrace.png') }}" width="50px">
+<img src="{{ asset('/images/logo/myGoldTrace.png') }}" width="80px">
