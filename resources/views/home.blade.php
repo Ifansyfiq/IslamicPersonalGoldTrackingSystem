@@ -20,15 +20,15 @@
                         <h1 class="m-0">
                             <!-- system logo -->
                             <a href="#">
-                                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                    <title>myGoldTrace</title>
-                                    <defs>
-                                        <radialGradient cy="0%" fx="50%" fy="0%" r="100%" id="logo-gradient">
-                                            <stop stop-color="#FFF" offset="0%" />
-                                            <stop stop-color="#FFF" stop-opacity=".24" offset="100%" />
-                                        </radialGradient>
-                                    </defs>
-                                    <path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm0-10a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" fill="url(#logo-gradient)" fill-rule="evenodd" />
+                                <img src="{{ asset('/images/logo/myGoldTraceWhite.png') }}" width="100" height="50" viewBox="0 0 32 32">
+                                <title>myGoldTrace</title>
+                                <defs>
+                                    <radialGradient cy="0%" fx="50%" fy="0%" r="100%" id="logo-gradient">
+                                        <stop stop-color="#FFF" offset="0%" />
+                                        <stop stop-color="#FFF" stop-opacity=".24" offset="100%" />
+                                    </radialGradient>
+                                </defs>
+                                <path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm0-10a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" fill="url(#logo-gradient)" fill-rule="evenodd" />
                                 </svg>
                             </a>
                         </h1>
@@ -53,6 +53,7 @@
                         <p class="hero-paragraph is-revealing">Your personalized, secure companion for tracking and managing precious gold assets. </p>
                         <p class="hero-cta is-revealing"><a class="button button-secondary button-shadow" href="{{ route('login') }}">Get started now</a></p>
                         <div class="hero-media">
+                            <img src="{{ asset('/images/dashboard/coins-gold-bars-scattered-table.jpg') }}">
                         </div>
                     </div>
                 </div>
@@ -66,11 +67,11 @@
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
-                                        <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-                                            <g fill="none" fill-rule="evenodd">
-                                                <path fill="#84E482" d="M48 16v32H16z" />
-                                                <path fill="#0EB3CE" d="M0 0h32v32H0z" />
-                                            </g>
+                                        <img src="{{ asset('/images/dashboard/gold-ingots_646634.png') }}" width="48" height="48">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#84E482" d="M48 16v32H16z" />
+                                            <path fill="#0EB3CE" d="M0 0h32v32H0z" />
+                                        </g>
                                         </svg>
                                     </div>
                                     <h4 class="feature-title h3-mobile">Manage Personal Gold Record</h4>
@@ -80,12 +81,12 @@
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
-                                        <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-                                            <g fill="none" fill-rule="evenodd">
-                                                <path fill="#84E482" d="M48 16v32H16z" />
-                                                <path fill="#0EB3CE" d="M0 0v32h32z" />
-                                                <circle fill="#02C6A4" cx="29" cy="9" r="4" />
-                                            </g>
+                                        <img src="{{ asset('/images/dashboard/calculator_5439139.png') }}" width="48" height="48">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#84E482" d="M48 16v32H16z" />
+                                            <path fill="#0EB3CE" d="M0 0v32h32z" />
+                                            <circle fill="#02C6A4" cx="29" cy="9" r="4" />
+                                        </g>
                                         </svg>
                                     </div>
                                     <h4 class="feature-title h3-mobile">Gold Zakat Calculator</h4>
@@ -95,11 +96,11 @@
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
-                                        <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-                                            <g fill="none" fill-rule="evenodd">
-                                                <path fill="#0EB3CE" d="M0 0h32v32H0z" />
-                                                <path fill="#84E482" d="M16 16h32L16 48z" />
-                                            </g>
+                                        <img src="{{ asset('/images/dashboard/jewelry_2584699.png') }}" width="48" height="48">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#0EB3CE" d="M0 0h32v32H0z" />
+                                            <path fill="#84E482" d="M16 16h32L16 48z" />
+                                        </g>
                                         </svg>
                                     </div>
                                     <h4 class="feature-title h3-mobile">Manage Pawnshop</h4>
@@ -109,12 +110,12 @@
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
-                                        <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-                                            <g fill="none" fill-rule="evenodd">
-                                                <path d="M32 40H0c0-8.837 7.163-16 16-16s16 7.163 16 16z" fill="#84E482" style="mix-blend-mode:multiply" />
-                                                <path fill="#03C5A4" d="M12 8h8v8h-8z" />
-                                                <path fill="#0EB3CE" d="M32 0h16v48H32z" />
-                                            </g>
+                                        <img src="{{ asset('/images/dashboard/customize_3593298.png') }}" width="48" height="48">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path d="M32 40H0c0-8.837 7.163-16 16-16s16 7.163 16 16z" fill="#84E482" style="mix-blend-mode:multiply" />
+                                            <path fill="#03C5A4" d="M12 8h8v8h-8z" />
+                                            <path fill="#0EB3CE" d="M32 0h16v48H32z" />
+                                        </g>
                                         </svg>
                                     </div>
                                     <h4 class="feature-title h3-mobile">Manage Profile</h4>
