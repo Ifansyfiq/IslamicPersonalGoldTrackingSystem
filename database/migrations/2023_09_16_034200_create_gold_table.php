@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('gold', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+
             $table->string('gold_name');
             $table->string('gold_purity');
             $table->integer('weight');
             $table->string('buy_shop');
-            $table->enum('status', ['Buy', 'Sell', 'Hold', 'Gift', 'Pawn', 'Renew Pawn', 'Other']);
+            $table->enum('status', ['Own(Keep)', 'Own(Wear)', 'Pawn', 'Renew Pawn', 'Sell', 'Lost', 'Other']);
             $table->float('buy_price');
             $table->float('sell_price');
             $table->integer('spread');
