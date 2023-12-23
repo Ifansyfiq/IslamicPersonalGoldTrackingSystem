@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('pawnshops', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->enum('arrahnu_type', ['YaPEIM', 'Maidam', 'Agro Bank']);
+            $table->string('arrahnu_type');
             $table->string('arrahnu_name');
             $table->integer('margin');
-            $table->enum('loan_duration', ['1-2', '4-5', '1-6']);
+            $table->string('loan_duration');
             $table->string('safekeep_rate1');
             $table->string('safekeep_rate2');
             $table->string('safekeep_rate3');

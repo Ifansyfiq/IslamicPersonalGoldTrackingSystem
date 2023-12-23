@@ -19,10 +19,10 @@ class PawnshopFactory extends Factory
     public function definition(): array
     {
         return [
-            'arrahnu_type' => $this->faker->randomElement(['YaPEIM', 'Maidam', 'Agro Bank']),
+            'arrahnu_type' => $this->faker->company(),
             'arrahnu_name' => $this->faker->company(),
             'margin' => $this->faker->numberBetween(70, 85),
-            'loan_duration' => $this->faker->randomElement(['1-2', '4-5', '1-6']),
+            'loan_duration' => $this->faker->word(),
             'safekeep_rate1' => $this->faker->word(),
             'safekeep_rate2' => $this->faker->word(),
             'safekeep_rate3' => $this->faker->word(),
