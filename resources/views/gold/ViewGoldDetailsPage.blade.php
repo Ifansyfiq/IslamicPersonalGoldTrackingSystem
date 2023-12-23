@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Record') }}
+            {{ __('Gold Record') }}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -28,22 +28,31 @@
                         </tr>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
-                                Date Created
+                                Purchase Date
                             </th>
                             <td class="px-6 py-4">
-                                {{($gold->created_at->format('d-m-Y'))}}
+                                #
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
-                                Time Created
+                                Purchase Time
                             </th>
                             <td class="px-6 py-4">
-                                {{($gold->created_at->format('H:i: A'))}}
+                                #
                             </td>
+                        </tr>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
-                                Gold Type
+                                Purchase From
+                            </th>
+                            <td class="px-6 py-4">
+                                #
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Gold Figure
                             </th>
                             <td class="px-6 py-4">
                                 {{($gold->goldtype->gold_type)}}
@@ -51,7 +60,7 @@
                         </tr>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
-                                Purity (k)
+                                Purity
                             </th>
                             <td class="px-6 py-4">
                                 {{($gold->gold_purity)}}
@@ -59,10 +68,10 @@
                         </tr>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
-                                Weight (g)
+                                Weight
                             </th>
                             <td class="px-6 py-4">
-                                {{($gold->weight)}}
+                                {{($gold->weight)}}g
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
@@ -83,10 +92,10 @@
                         </tr>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
-                                Buy Price (RM)
+                                Buy Price
                             </th>
                             <td class="px-6 py-4">
-                                {{($gold->buy_price)}}
+                                RM {{($gold->buy_price)}}
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
@@ -94,15 +103,17 @@
                                 Sell Price
                             </th>
                             <td class="px-6 py-4">
-                                {{($gold->sell_price)}}
+                                RM {{($gold->sell_price)}}
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
-                                Spread (%)
+                                Spread
+                                <br>
+                                (Sell Price-Buy Price)/Sell Price*100
                             </th>
                             <td class="px-6 py-4">
-                                {{($gold->spread)}}
+                                {{($gold->spread)}}%
                             </td>
                         </tr>
                     </tbody>
