@@ -74,11 +74,11 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{($gold->purchase_date)}}
+                                            {{ \Carbon\Carbon::parse($gold->purchase_date)->format('d-m-y') }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{($gold->purchase_time)}}
+                                            {{ \Carbon\Carbon::parse($gold->purchase_time)->format('h:i A') }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">

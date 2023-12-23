@@ -31,7 +31,7 @@
                                 Purchase Date
                             </th>
                             <td class="px-6 py-4">
-                                {{($gold->purchase_date)}}
+                                {{ \Carbon\Carbon::parse($gold->purchase_date)->format('d-m-y') }}
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
@@ -39,7 +39,7 @@
                                 Purchase Time
                             </th>
                             <td class="px-6 py-4">
-                                {{($gold->purchase_time)}}
+                                {{ \Carbon\Carbon::parse($gold->purchase_time)->format('h:i A') }}
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
