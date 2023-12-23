@@ -47,7 +47,7 @@
                                 Purchase From
                             </th>
                             <td class="px-6 py-4">
-                                #
+                                {{($gold->purchase_from)}}
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
@@ -72,14 +72,6 @@
                             </th>
                             <td class="px-6 py-4">
                                 {{($gold->weight)}}g
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b">
-                            <th scope="row" class="px-6 py-4 font-medium text-black">
-                                Buy Shop
-                            </th>
-                            <td class="px-6 py-4">
-                                {{($gold->buy_shop)}}
                             </td>
                         </tr>
                         <tr class="bg-white border-b">

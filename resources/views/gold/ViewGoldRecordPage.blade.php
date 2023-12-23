@@ -29,7 +29,7 @@
                                             Purity
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                            Weight 
+                                            Weight
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-800 text-left text-xs font-medium text-white uppercase tracking-wider">
                                             Purchase Date
@@ -82,7 +82,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            #
+                                            {{($gold->purchase_from)}}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
