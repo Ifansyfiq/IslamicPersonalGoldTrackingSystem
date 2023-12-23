@@ -106,13 +106,13 @@
                                 Operation time
                             </th>
                             <td class="px-6 py-4 text-center">
-                                Sunday: {{ date('h:i A', strtotime($pawnshop->sun_start)) }} - {{ date('h:i A', strtotime($pawnshop->sun_end)) }}<br>
-                                Monday: {{ date('h:i A', strtotime($pawnshop->mon_start)) }} - {{ date('h:i A', strtotime($pawnshop->mon_end)) }}<br>
-                                Tuesday: {{ date('h:i A', strtotime($pawnshop->tue_start)) }} - {{ date('h:i A', strtotime($pawnshop->tue_end)) }}<br>
-                                Wednesday: {{ date('h:i A', strtotime($pawnshop->wed_start)) }} - {{ date('h:i A', strtotime($pawnshop->wed_end)) }}<br>
-                                Thursday: {{ date('h:i A', strtotime($pawnshop->thu_start)) }} - {{ date('h:i A', strtotime($pawnshop->thu_end)) }}<br>
-                                Friday: {{ date('h:i A', strtotime($pawnshop->fri_start)) }} - {{ date('h:i A', strtotime($pawnshop->fri_end)) }}<br>
-                                Saturday: {{ date('h:i A', strtotime($pawnshop->sat_start)) }} - {{ date('h:i A', strtotime($pawnshop->sat_end)) }}<br>
+                                Sunday: {{ $pawnshop->sun }}<br>
+                                Monday: {{ $pawnshop->mon }}<br>
+                                Tuesday: {{ $pawnshop->tue }} <br>
+                                Wednesday: {{ $pawnshop->wed }}<br>
+                                Thursday: {{ $pawnshop->thu }}<br>
+                                Friday: {{ $pawnshop->fri }}<br>
+                                Saturday: {{ $pawnshop->sat }}<br>
                             </td>
                         </tr>
                         <tr class="border-b">
