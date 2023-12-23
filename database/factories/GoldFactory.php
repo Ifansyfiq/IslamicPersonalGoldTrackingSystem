@@ -21,7 +21,7 @@ class GoldFactory extends Factory
         return [
             'gold_name' => $this->faker->word(),
             'gold_purity' => $this->faker->word(),
-            'weight' => $this->faker->randomDigitNotNull(),
+            'weight' => $this->faker->randomFloat(4, 0, 1000.9999),
             'purchase_date' => $this->faker->date(),
             'purchase_time' => $this->faker->time(),
             'purchase_from' => $this->faker->word(),

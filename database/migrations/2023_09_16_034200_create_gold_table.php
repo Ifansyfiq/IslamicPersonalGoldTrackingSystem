@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('gold_name');
             $table->string('gold_purity');
-            $table->integer('weight');
+            $table->decimal('weight', 10, 4);
             $table->date('purchase_date');
             $table->time('purchase_time');
             $table->string('purchase_from');
