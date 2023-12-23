@@ -18,6 +18,7 @@
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-6 group">
                         <select name="arrahnu_type" id="arrahnu_type" value="{{ old('arrahnu_type', $pawnshop->arrahnu_type) }}" class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
+                            <option value="{{ $pawnshop->arrahnu_type }}">{{ $pawnshop->arrahnu_type }}</option>
                             <option value="YaPEIM">YaPEIM</option>
                             <option value="Maidam">Maidam</option>
                             <option value="Agro Bank">Agro Bank</option>

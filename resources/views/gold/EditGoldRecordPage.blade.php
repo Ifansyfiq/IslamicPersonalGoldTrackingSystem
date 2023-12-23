@@ -22,6 +22,7 @@
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
                         <select name="gold_purity" id="gold_purity" class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{ old('gold_purity', $golds->gold_purity) }}" required>
+                            <option value="{{ $golds->gold_purity }}">{{ $golds->gold_purity }}</option>
                             <option value="999 (24k)">999 (24k)</option>
                             <option value="916 (22k)">916 (22k)</option>
                             <option value="875 (21k)">875 (21k)</option>
@@ -49,6 +50,7 @@
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
                         <select name="purchase_from" id="purchase_from" class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{ old('purchase_from', $golds->purchase_from) }}" required>
+                            <option value="{{ $golds->purchase_from }}">{{ $golds->purchase_from }}</option>
                             <option value="Buy">Buy</option>
                             <option value="Inherit">Inherit</option>
                             <option value="Gift">Gift</option>
@@ -59,6 +61,7 @@
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-6 group">
                         <select type="tel" name="status" id="status" class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{ old('status', $golds->status) }}" required>
+                            <option value="{{ $golds->status }}">{{ $golds->status }}</option>
                             <option value="Own(Keep)">Own(Keep)</option>
                             <option value="Own(Wear)">Own(Wear)</option>
                             <option value="Pawn">Pawn</option>
