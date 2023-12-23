@@ -22,6 +22,8 @@ class GoldFactory extends Factory
             'gold_name' => $this->faker->word(),
             'gold_purity' => $this->faker->word(),
             'weight' => $this->faker->randomDigitNotNull(),
+            'purchase_date' => $this->faker->date(),
+            'purchase_time' => $this->faker->time(),
             'purchase_from' => $this->faker->word(),
             'status' =>  $this->faker->randomElement(['Own(Keep)', 'Own(Wear)', 'Pawn', 'Renew Pawn', 'Sell', 'Lost', 'Other']),
             'buy_price' => $this->faker->randomFloat(2, 10, 500.00),

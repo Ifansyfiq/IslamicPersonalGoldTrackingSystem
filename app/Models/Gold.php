@@ -13,6 +13,8 @@ class Gold extends Model
         'gold_name',
         'gold_purity',
         'weight',
+        'purchase_date',
+        'purchase_time',
         'purchase_from',
         'status',
         'buy_price',

@@ -25,6 +25,8 @@ class UpdateGoldRequest extends FormRequest
             'gold_name' => 'required|string',
             'gold_purity' => 'required|string',
             'weight' => 'required|string',
+            'purchase_date' => 'required|string',
+            'purchase_time' => 'required|string',
             'purchase_from' => 'required|string',
             'status' => 'required|string',
             'buy_price' => 'required|string',

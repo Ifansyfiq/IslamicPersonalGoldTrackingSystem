@@ -31,7 +31,7 @@
                                 Purchase Date
                             </th>
                             <td class="px-6 py-4">
-                                #
+                                {{($gold->purchase_date)}}
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
@@ -39,7 +39,7 @@
                                 Purchase Time
                             </th>
                             <td class="px-6 py-4">
-                                #
+                                {{($gold->purchase_time)}}
                             </td>
                         </tr>
                         <tr class="bg-white border-b">

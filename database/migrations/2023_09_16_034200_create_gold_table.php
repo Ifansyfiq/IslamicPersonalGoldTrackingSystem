@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('gold_name');
             $table->string('gold_purity');
             $table->integer('weight');
+            $table->date('purchase_date');
+            $table->time('purchase_time');
             $table->string('purchase_from');
             $table->enum('status', ['Own(Keep)', 'Own(Wear)', 'Pawn', 'Renew Pawn', 'Sell', 'Lost', 'Other']);
             $table->float('buy_price');
