@@ -32,6 +32,7 @@ class StoreGoldRequest extends FormRequest
             'buy_price' => 'required|string',
             'sell_price' => 'required|string',
             'spread' => 'required|string',
+            'gold_image' => 'nullable|image',
             'user_id' => 'numeric',
             'gold_type_id' => ['required', 'exists:gold_types,id'],
         ];

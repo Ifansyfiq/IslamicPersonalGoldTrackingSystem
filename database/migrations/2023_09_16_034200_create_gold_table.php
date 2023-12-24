@@ -24,6 +24,7 @@ return new class extends Migration
             $table->float('buy_price');
             $table->float('sell_price');
             $table->integer('spread');
+            $table->string('gold_image')->nullable();
             $table->foreignId('user_id');
             $table->foreignId('goldtype_id');
 

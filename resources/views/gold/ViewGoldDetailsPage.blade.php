@@ -20,6 +20,14 @@
                     <tbody>
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
+                                Gold Image
+                            </th>
+                            <td class="px-6 py-4">
+                                <img src="{{ asset('uploads/golds/'.$gold->gold_image) }}" width="100px" alt="" class="img-fluid">
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Gold Name
                             </th>
                             <td class="px-6 py-4">

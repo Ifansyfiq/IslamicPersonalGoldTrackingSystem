@@ -7,6 +7,7 @@ use App\Models\GoldType;
 use App\Http\Requests\StoreGoldRequest;
 use App\Http\Requests\UpdateGoldRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class GoldController extends Controller
 {
@@ -54,6 +55,14 @@ class GoldController extends Controller
         // Retrieve the gold type based on the selected gold_type_id
         $goldType = GoldType::findOrFail($request->gold_type_id);
 
+
+        if ($request->hasFile('image_golds')) {
+            $file = $request->file('image_golds');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/golds/', $filename);
+        }
+
         //store a new post
         Gold::create([
             'gold_name' => $request->gold_name,
@@ -66,6 +75,7 @@ class GoldController extends Controller
             'buy_price' => $request->buy_price,
             'sell_price' => $request->sell_price,
             'spread' => $request->spread,
+            'gold_image' => $filename,
             'user_id' => auth()->user()->id,
             'goldtype_id' => $goldType->id, // Store the gold_type_id,
         ]);
@@ -103,6 +113,26 @@ class GoldController extends Controller
      */
     public function update(UpdateGoldRequest $request, Gold $gold)
     {
+        $updateInfo = $gold;
+
+        if ($request->hasFile('image_golds')) {
+            $file = $request->file('image_golds');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/golds/', $filename);
+
+            // Update the gold image field in the database
+            $gold['image_golds'] = $filename;
+
+            // Delete the previous gold_image file if it exists
+            if (!empty($updateInfo->gold_image)) {
+                $previousFile = 'uploads/golds/' . $updateInfo->gold_image;
+                if (File::exists($previousFile)) {
+                    File::delete($previousFile);
+                }
+            }
+        }
+
         if ($gold->user_id == auth()->user()->id) {
             $gold->update([
                 'gold_name' => $request->gold_name,
@@ -114,7 +144,7 @@ class GoldController extends Controller
                 'status' => $request->status,
                 'buy_price' => $request->buy_price,
                 'sell_price' => $request->sell_price,
-                'spread' => $request->spread
+                'spread' => $request->spread,
             ]);
         }
 

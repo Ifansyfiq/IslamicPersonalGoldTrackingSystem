@@ -32,6 +32,7 @@ class UpdateGoldRequest extends FormRequest
             'buy_price' => 'required|string',
             'sell_price' => 'required|string',
             'spread' => 'required|string',
+            'gold_image' => 'nullable|image',
         ];
     }
 }
