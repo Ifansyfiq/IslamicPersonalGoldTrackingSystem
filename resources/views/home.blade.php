@@ -51,7 +51,7 @@
                     <div class="hero-inner">
                         <h1 class="hero-title h2-mobile mt-0 is-revealing">Welcome to myGoldTrace</h1>
                         <p class="hero-paragraph is-revealing">Your personalized, secure companion for tracking and managing precious gold assets. </p>
-                        <p class="hero-cta is-revealing"><a class="button button-secondary button-shadow" href="{{ route('login') }}">Get started now</a></p>
+                        <p class="hero-cta is-revealing"><a class="button button-secondary button-shadow" href="{{ route('register') }}">Get started now</a></p>
                         <div class="hero-media">
                             <img src="{{ asset('/images/dashboard/coins-gold-bars-scattered-table.jpg') }}">
                         </div>
