@@ -41,7 +41,7 @@ class StorePawnshopRequest extends FormRequest
             'email' => 'required|string',
             'hotline' => 'required|string',
             'address' => 'required|string',
-            'coordinate' => 'required|string',
+            'website_link' => 'required|string',
             'user_id' => 'numeric',
             'safekeep_rate_id' => 'numeric',
         ];

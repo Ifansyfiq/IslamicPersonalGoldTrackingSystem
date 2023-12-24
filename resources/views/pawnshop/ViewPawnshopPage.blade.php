@@ -82,6 +82,7 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        {{ $pawnshops->links() }}
                     </div>
                 </div>
             </div>

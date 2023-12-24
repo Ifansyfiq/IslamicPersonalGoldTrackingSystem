@@ -18,17 +18,28 @@ class PawnshopController extends Controller
         $userId = Auth::id();
 
         // Retrieve pawnshop records for the current user
-        $pawnshops = Pawnshop::where('user_id', $userId)->get();
+        $pawnshops = Pawnshop::where('user_id', $userId)->paginate(5);
 
         return view('pawnshop.ViewPawnshopPage', [
             'pawnshops' => $pawnshops,
         ]);
     }
 
-    public function website()
+    public function website(Pawnshop $pawnshop)
     {
-        return redirect()->away('https://www.arrahnuyapeim.net/');
+        // Retrieve the website_link attribute from the Pawnshop model
+        $websiteLink = $pawnshop->website_link;
+
+        // Check if website_link is not null before creating the redirect
+        if ($websiteLink !== null) {
+            return redirect()->away($websiteLink);
+        } else {
+            // Handle the case where website_link is null, provide a default URL, or perform another action
+            // For example, redirect to a default URL or show an error message
+            return redirect()->away('https://example.com/default');
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -63,7 +74,7 @@ class PawnshopController extends Controller
             'email' => $request->email,
             'hotline' => $request->hotline,
             'address' => $request->address,
-            'coordinate' => $request->coordinate,
+            'website_link' => $request->website_link,
             'user_id' => auth()->user()->id,
             'safekeep_rate_id' => 1,
         ]);
@@ -119,7 +130,7 @@ class PawnshopController extends Controller
                 'email' => $request->email,
                 'hotline' => $request->hotline,
                 'address' => $request->address,
-                'coordinate' => $request->coordinate,
+                'website_link' => $request->website_link,
             ]);
         }
 

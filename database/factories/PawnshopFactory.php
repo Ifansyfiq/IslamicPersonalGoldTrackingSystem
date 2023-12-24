@@ -38,7 +38,7 @@ class PawnshopFactory extends Factory
             'email' => $this->faker->email(),
             'hotline' => $this->faker->phoneNumber(),
             'address' => $this->faker->address(),
-            'coordinate' => $this->faker->latitude() . ',' . $this->faker->longitude(),
+            'website_link' => $this->faker->url(),
             'user_id' => User::inRandomOrder()->pluck('id')->first(),
             'safekeep_rate_id' => SafeKeepRate::inRandomOrder()->pluck('id')->first(),
 

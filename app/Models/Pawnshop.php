@@ -23,7 +23,7 @@ class Pawnshop extends Model
         'email',
         'hotline',
         'address',
-        'coordinate',
+        'website_link',
         'sun',
         'mon',
         'tue',
@@ -36,13 +36,13 @@ class Pawnshop extends Model
 
     ];
 
-    public function user() 
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    
-    public function safekeeprate() 
+
+    public function safekeeprate()
     {
         return $this->belongsTo(SafeKeepRate::class, 'safekeep_rate_id');
     }
