@@ -19,6 +19,16 @@ class UserController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function show(User $user)
+    {
+        return view('user-profile.ViewUserProfileDetailsPage', [
+            'user' => $user,
+        ]);
+    }
+
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy(User $user)
