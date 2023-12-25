@@ -14,11 +14,21 @@ class PawnshopController extends Controller
      */
     public function index()
     {
-        // Get the current user's ID
-        $userId = Auth::id();
+        $allowedRoles = ['User', 'Admin', 'Super Admin']; // Define the allowed roles
+        $currentUserRole = Auth::user()->roles->pluck('name')->toArray(); // Retrieve the current user's roles
 
-        // Retrieve pawnshop records for the current user
-        $pawnshops = Pawnshop::where('user_id', $userId)->paginate(5);
+        if (!empty(array_intersect($currentUserRole, $allowedRoles))) {
+
+            // Retrieve all pawnshop records
+            $pawnshops = Pawnshop::paginate(5);
+        } else if (in_array('Pawnshop Owner', $currentUserRole)) {
+            // Get the current user's ID
+            $userId = Auth::id();
+            // Retrieve pawnshop records for the current user
+            $pawnshops = Pawnshop::where('user_id', $userId)->paginate(5);
+        } else {
+            return redirect()->away('https://example.com/default');
+        }
 
         return view('pawnshop.ViewPawnshopPage', [
             'pawnshops' => $pawnshops,
