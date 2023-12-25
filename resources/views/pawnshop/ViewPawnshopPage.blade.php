@@ -45,6 +45,10 @@
                                         Address: {{ $pawnshop->address}}
                                     </td>
 
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" style="display: block;">
+                                        Last Updated At: ({{ $pawnshop->updated_at->diffForHumans()}})
+                                    </td>
+
                                     @for ($i = 0; $i < 8; $i++)<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                         </td>
                                         @endfor
