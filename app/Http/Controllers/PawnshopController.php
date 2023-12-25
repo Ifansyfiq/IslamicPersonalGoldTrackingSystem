@@ -107,10 +107,20 @@ class PawnshopController extends Controller
      */
     public function edit(Pawnshop $pawnshop)
     {
+        $allowedRoles = ['Admin', 'Super Admin']; // Define the allowed roles
+        $currentUserRole = Auth::user()->roles->pluck('name')->toArray(); // Retrieve the current user's roles
+        
         if ($pawnshop->user_id == auth()->user()->id) {
             return view('pawnshop.EditPawnshopPage', [
                 'pawnshop' => $pawnshop,
             ]);
+        } else if (!empty(array_intersect($currentUserRole, $allowedRoles))) {
+            return view('pawnshop.EditPawnshopPage', [
+                'pawnshop' => $pawnshop,
+            ]);
+        }
+        else {
+            return redirect()->away('https://example.com/default');
         }
     }
 

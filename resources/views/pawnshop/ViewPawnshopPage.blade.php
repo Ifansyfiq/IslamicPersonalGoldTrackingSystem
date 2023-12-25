@@ -65,11 +65,11 @@
                                             @endcan
                                         </td>
                                 </tr>
+                                @empty
+                                <p class="text-warning">No record available</p>
+                                @endforelse
                             </tbody>
                         </table>
-                        @empty
-                        <p class="text-warning">No record available</p>
-                        @endforelse
                         {{ $pawnshops->links() }}
                     </div>
                 </div>
