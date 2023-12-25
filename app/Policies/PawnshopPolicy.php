@@ -29,7 +29,7 @@ class PawnshopPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo('create pawnshop');
+        return $user->hasAnyRole(['Admin', 'Super Admin', 'Pawnshop Owner']);
     }
 
     /**
@@ -37,7 +37,7 @@ class PawnshopPolicy
      */
     public function update(User $user, Pawnshop $pawnshop): bool
     {
-        return $user->hasPermissionTo('update pawnshop');
+        return $user->hasAnyRole(['Admin', 'Super Admin']) || ($user->hasRole('Pawnshop Owner') && $user->id === $pawnshop->user_id);
     }
 
     /**
@@ -45,7 +45,7 @@ class PawnshopPolicy
      */
     public function delete(User $user, Pawnshop $pawnshop): bool
     {
-        return $user->hasPermissionTo('delete pawnshop');
+        return $user->hasAnyRole(['Admin', 'Super Admin']) || ($user->hasRole('Pawnshop Owner') && $user->id === $pawnshop->user_id);
     }
 
     /**
