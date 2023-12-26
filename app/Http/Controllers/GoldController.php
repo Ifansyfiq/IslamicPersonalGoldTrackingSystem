@@ -21,16 +21,19 @@ class GoldController extends Controller
             // Get the current user's ID
             $userId = Auth::id();
 
-            // Paginate gold records for the current user with 10 records per page
-            $golds = Gold::where('user_id', $userId)->paginate(10);
+            // Retrieve the search query from the request
+            $search = request('search');
+
+            // Retrieve all gold records for the current user and paginate the results
+            $golds = Gold::search(request(key: 'search'))->where('user_id', $userId)->paginate(10);
 
             return view('gold.ViewGoldRecordPage', [
                 'golds' => $golds,
+                'search' => $search,
             ]);
         } else {
             // Handle the case where the user is not authenticated
-            // Redirect to the login page or show an error message
-            return redirect()->route('login');
+            return redirect()->away('https://example.com/default');
         }
     }
 
