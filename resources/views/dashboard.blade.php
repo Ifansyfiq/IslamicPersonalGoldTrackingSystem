@@ -12,9 +12,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <div class="promo_card">
-                <h1>Welcome to myGoldTrace</h1>
-                <span style="font-family: verdana, geneva, sans-serif;">Lorem ipsum dolor sit amet.</span>
-                <button class="custom-btn btn-2" style="display: block;">Learn More</button>
+                <h1 class="text-4xl font-medium leading-tight">Welcome to myGoldTrace</h1>
+                <span style="font-family: verdana, geneva, sans-serif;">A hub for managing your gold-related activities. 
+                Track your gold holdings, calculate gold zakat, and explore the features designed to make your experience effortless.</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
@@ -89,4 +89,4 @@
     </div>
 
 </x-app-layout>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
