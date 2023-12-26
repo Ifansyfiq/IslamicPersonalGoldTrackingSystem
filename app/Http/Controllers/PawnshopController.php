@@ -53,9 +53,32 @@ class PawnshopController extends Controller
             $userId = Auth::id();
             // Retrieve the search query from the request
             $search = request('search');
-            // Retrieve pawnshop records for the current user
-            $pawnshops = Pawnshop::search(request(key: 'search'))->where('user_id', $userId)->paginate(5);
 
+            if (Request::get('sort') == 'margin_desc') {
+                // Retrieve all gold records for the current user and paginate the results
+                $pawnshops = Pawnshop::search(request(key: 'search'))
+                    ->where('user_id', $userId)
+                    ->orderBy('margin', 'desc')
+                    ->paginate(5);
+            } else if (Request::get('sort') == 'margin_asc') {
+                // Retrieve all gold records for the current user and paginate the results
+                $pawnshops = Pawnshop::search(request(key: 'search'))
+                    ->where('user_id', $userId)
+                    ->orderBy('margin', 'asc')
+                    ->paginate(5);
+            } else if (Request::get('sort') == 'newest') {
+                // Retrieve all gold records for the current user and paginate the results
+                $pawnshops = Pawnshop::search(request(key: 'search'))
+                    ->where('user_id', $userId)
+                    ->orderBy('updated_at', 'desc')
+                    ->paginate(5);
+            } else {
+                // Retrieve all gold records for the current user and paginate the results
+                $pawnshops = Pawnshop::search(request(key: 'search'))
+                    ->where('user_id', $userId)
+                    ->paginate(5);
+            }
+            
             return view('pawnshop.ViewPawnshopPage', [
                 'pawnshops' => $pawnshops,
                 'search' => $search,
