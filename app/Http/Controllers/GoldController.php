@@ -58,6 +58,7 @@ class GoldController extends Controller
         // Retrieve the gold type based on the selected gold_type_id
         $goldType = GoldType::findOrFail($request->gold_type_id);
 
+        $filename = null; // Default value for the filename
 
         if ($request->hasFile('image_golds')) {
             $file = $request->file('image_golds');

@@ -79,9 +79,28 @@
                                             {{($gold->gold_purity)}}
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{($gold->weight)}}g
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">
+                                            <?php
+                                            $weight = $gold->weight;
+
+                                            // Calculate the number of decimal places
+                                            $decimalPlaces = strlen(substr(strrchr($weight, "."), 1));
+
+                                            // Format the weight based on the number of decimal places
+                                            if ($decimalPlaces > 0) {
+                                                $formattedWeight = rtrim(number_format($weight, $decimalPlaces, '.', ''), '0');
+                                            } else {
+                                                $formattedWeight = rtrim(number_format($weight, 0, '', ''), '0');
+                                            }
+
+                                            // Remove the decimal point if there are no decimal places
+                                            $formattedWeight = rtrim($formattedWeight, '.');
+
+                                            echo $formattedWeight;
+                                            ?>g
                                         </td>
+
+
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ \Carbon\Carbon::parse($gold->purchase_date)->format('d-m-y') }}

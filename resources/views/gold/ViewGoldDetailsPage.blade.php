@@ -23,7 +23,7 @@
                                 Gold Image
                             </th>
                             <td class="px-6 py-4">
-                                <img src="{{ asset('uploads/golds/'.$gold->gold_image) }}" width="100px" alt="" class="img-fluid">
+                                <img src="{{ asset('uploads/golds/'.$gold->gold_image) }}" width="100px" alt="gold_image" class="img-fluid">
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
@@ -79,7 +79,24 @@
                                 Weight
                             </th>
                             <td class="px-6 py-4">
-                                {{($gold->weight)}}g
+                                <?php
+                                $weight = $gold->weight;
+
+                                // Calculate the number of decimal places
+                                $decimalPlaces = strlen(substr(strrchr($weight, "."), 1));
+
+                                // Format the weight based on the number of decimal places
+                                if ($decimalPlaces > 0) {
+                                    $formattedWeight = rtrim(number_format($weight, $decimalPlaces, '.', ''), '0');
+                                } else {
+                                    $formattedWeight = rtrim(number_format($weight, 0, '', ''), '0');
+                                }
+
+                                // Remove the decimal point if there are no decimal places
+                                $formattedWeight = rtrim($formattedWeight, '.');
+
+                                echo $formattedWeight;
+                                ?>g
                             </td>
                         </tr>
                         <tr class="bg-white border-b">
