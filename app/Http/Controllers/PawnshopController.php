@@ -19,19 +19,28 @@ class PawnshopController extends Controller
 
         if (!empty(array_intersect($currentUserRole, $allowedRoles))) {
 
-            // Retrieve all pawnshop records
-            $pawnshops = Pawnshop::paginate(5);
+            // Retrieve the search query from the request
+            $search = request('search');
+
+            // Retrieve all gold records for the current user and paginate the results
+            $pawnshops = Pawnshop::search(request(key: 'search'))->paginate(5);
+
+            // // Retrieve all pawnshop records
+            // $pawnshops = Pawnshop::paginate(5);
         } else if (in_array('Pawnshop Owner', $currentUserRole)) {
             // Get the current user's ID
             $userId = Auth::id();
+            // Retrieve the search query from the request
+            $search = request('search');
             // Retrieve pawnshop records for the current user
-            $pawnshops = Pawnshop::where('user_id', $userId)->paginate(5);
+            $pawnshops = Pawnshop::search(request(key: 'search'))->where('user_id', $userId)->paginate(5);
         } else {
             return redirect()->away('https://example.com/default');
         }
 
         return view('pawnshop.ViewPawnshopPage', [
             'pawnshops' => $pawnshops,
+            'search' => $search,
         ]);
     }
 
@@ -109,7 +118,7 @@ class PawnshopController extends Controller
     {
         $allowedRoles = ['Admin', 'Super Admin']; // Define the allowed roles
         $currentUserRole = Auth::user()->roles->pluck('name')->toArray(); // Retrieve the current user's roles
-        
+
         if ($pawnshop->user_id == auth()->user()->id) {
             return view('pawnshop.EditPawnshopPage', [
                 'pawnshop' => $pawnshop,
@@ -118,8 +127,7 @@ class PawnshopController extends Controller
             return view('pawnshop.EditPawnshopPage', [
                 'pawnshop' => $pawnshop,
             ]);
-        }
-        else {
+        } else {
             return redirect()->away('https://example.com/default');
         }
     }

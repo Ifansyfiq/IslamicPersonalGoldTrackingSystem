@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Pawnshop extends Model
 {
     use HasFactory;
-
+    use Searchable;
 
     protected $fillable = [
         'arrahnu_type',
@@ -45,5 +46,15 @@ class Pawnshop extends Model
     public function safekeeprate()
     {
         return $this->belongsTo(SafeKeepRate::class, 'safekeep_rate_id');
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'arrahnu_type' => $this->arrahnu_type,
+            'arrahnu_name' => $this->arrahnu_name,
+            'margin' => $this->margin,
+            'address' => $this->address,
+        ];
     }
 }

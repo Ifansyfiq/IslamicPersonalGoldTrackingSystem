@@ -14,6 +14,16 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <form action="{{ route('pawnshop.index', request()->query()) }}">
+                        <div class="flex mt-2">
+                            <input type="text" name="search" placeholder="Search" class="py-2 px-2 text-md border border-gray-200 rounded-l focus:outline-none" value="{{$search}}" />
+                            <button type="submit" class="w-10 flex items-center justify-center border-t border-r border-b border-gray-200 rounded-r text-gray-100 bg-gray-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" style="color: white;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
                     <div class="py-2 align-middle inline-block min-w-full sm:px-1 lg:px-8">
                         @forelse ($pawnshops as $pawnshop)
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 mt-3">
