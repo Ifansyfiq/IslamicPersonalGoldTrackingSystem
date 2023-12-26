@@ -10,6 +10,7 @@ function initializePage() {
 
     // Call the goldValueWear function to update the gold price based on the default year
     goldValueWear();
+    urufValueWear();
     urufValueKeep();
 }
 // for wear gold
