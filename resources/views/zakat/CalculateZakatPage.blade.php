@@ -28,7 +28,6 @@
                                     <div>
                                         <x-label for="yearW">Year / Haul</x-label>
                                         <select id="yearW" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="yearW" oninput="goldValueWear()">
-                                            <option value="" disabled selected></option>
                                             <option value="2023">2023</option>
                                             <option value="2022">2022</option>
                                             <option value="2021">2021</option>
@@ -60,20 +59,21 @@
                                     <x-label for="locationW">Location</x-label>
                                     <select id="locationW" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="locationW" oninput="urufValueWear()">
                                         <option value="" disabled selected></option>
-                                        <option value="Johor">Johor</option>
-                                        <option value="Kedah">Kedah</option>
-                                        <option value="Kelantan">Kelantan</option>
-                                        <option value="Melaka">Melaka</option>
-                                        <option value="Kuala Lumpur dan Putrajaya">Kuala Lumpur dan Putrajaya</option>
-                                        <option value="Negeri Sembilan">Negeri Sembilan</option>
-                                        <option value="Pahang">Pahang</option>
-                                        <option value="Perak">Perak</option>
-                                        <option value="Perlis">Perlis</option>
-                                        <option value="Pulau Pinang">Pulau Pinang</option>
-                                        <option value="Sabah">Sabah</option>
-                                        <option value="Sarawak">Sarawak</option>
-                                        <option value="Selangor">Selangor</option>
-                                        <option value="Terengganu">Terengganu</option>
+                                        <option value="Johor" {{ $user->state === 'Johor' ? 'selected' : '' }}>Johor</option>
+                                        <option value="Kedah" {{ $user->state === 'Kedah' ? 'selected' : '' }}>Kedah</option>
+                                        <option value="Kelantan" {{ $user->state === 'Kelantan' ? 'selected' : '' }}>Kelantan</option>
+                                        <option value="Melaka" {{ $user->state === 'Melaka' ? 'selected' : '' }}>Melaka</option>
+                                        <option value="Kuala Lumpur" {{ $user->state === 'Johor' ? 'selected' : '' }}>Kuala Lumpur</option>
+                                        <option value="Putrajaya" {{ $user->state === 'Johor' ? 'selected' : '' }}>Putrajaya</option>
+                                        <option value="Negeri Sembilan" {{ $user->state === 'Negeri Sembilan' ? 'selected' : '' }}>Negeri Sembilan</option>
+                                        <option value="Pahang" {{ $user->state === 'Pahang' ? 'selected' : '' }}>Pahang</option>
+                                        <option value="Perak" {{ $user->state === 'Perak' ? 'selected' : '' }}>Perak</option>
+                                        <option value="Perlis" {{ $user->state === 'Perlis' ? 'selected' : '' }}>Perlis</option>
+                                        <option value="Pulau Pinang" {{ $user->state === 'Pulau Pinang' ? 'selected' : '' }}>Pulau Pinang</option>
+                                        <option value="Sabah" {{ $user->state === 'Sabah' ? 'selected' : '' }}>Sabah</option>
+                                        <option value="Sarawak" {{ $user->state === 'Sarawak' ? 'selected' : '' }}>Sarawak</option>
+                                        <option value="Selangor" {{ $user->state === 'Selangor' ? 'selected' : '' }}>Selangor</option>
+                                        <option value="Terengganu" {{ $user->state === 'Terengganu' ? 'selected' : '' }}>Terengganu</option>
                                     </select>
                                 </td>
                                 <td></td>
@@ -141,7 +141,6 @@
                                     <div>
                                         <x-label for="yearK">Year/Haul</x-label>
                                         <select id="yearK" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="yearK" oninput="urufValueKeep()">
-                                            <option value="" disabled selected></option>
                                             <option value="2023">2023</option>
                                             <option value="2022">2022</option>
                                             <option value="2021">2021</option>
@@ -212,143 +211,12 @@
                         <button <a href="#" onclick="window.print()" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                             Print
                         </button>
-                        <input type="reset" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                        <button onclick="refreshPage()" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Reset</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <script>
-        // for wear gold
-        function goldValueWear() {
-            var x = document.getElementById("yearW").value;
-            if (x == "2023") {
-                document.getElementById("goldpriceW").value = "254.42";
-            } else if (x == "2022") {
-                document.getElementById("goldpriceW").value = "239.55";
-            } else if (x == "2021") {
-                document.getElementById("goldpriceW").value = "238.81";
-            } else if (x == "2020") {
-                document.getElementById("goldpriceW").value = "164.33";
-            } else
-                document.getElementById("goldpriceW").value = "0";
-        }
-
-        function urufValueWear() {
-            var x = document.getElementById("locationW").value;
-            if (x == "Johor") {
-                document.getElementById("urufW").value = "850";
-            } else if (x == "Kedah") {
-                document.getElementById("urufW").value = "170";
-            } else if (x == "Kelantan") {
-                document.getElementById("urufW").value = "0";
-            } else if (x == "Melaka") {
-                document.getElementById("urufW").value = "180";
-            } else if (x == "Kuala Lumpur dan Putrajaya") {
-                document.getElementById("urufW").value = "200";
-            } else if (x == "Negeri Sembilan") {
-                document.getElementById("urufW").value = "170";
-            } else if (x == "Pahang") {
-                document.getElementById("urufW").value = "500";
-            } else if (x == "Perak") {
-                document.getElementById("urufW").value = "500";
-            } else if (x == "Perlis") {
-                document.getElementById("urufW").value = "85";
-            } else if (x == "Pulau Pinang") {
-                document.getElementById("urufW").value = "165";
-            } else if (x == "Sabah") {
-                document.getElementById("urufW").value = "152";
-            } else if (x == "Sarawak") {
-                document.getElementById("urufW").value = "90";
-            } else if (x == "Selangor") {
-                document.getElementById("urufW").value = "800";
-            } else if (x == "Terengganu") {
-                document.getElementById("urufW").value = "850";
-            } else
-                document.getElementById("urufW").value = "0";
-        }
-
-        // for wear gold
-        function calcValueZakatWear() {
-            var weight = parseFloat(document.getElementById("weightW").value);
-            var uruf = parseFloat(document.getElementById("urufW").value);
-            var goldPrice = parseFloat(document.getElementById("goldpriceW").value);
-
-            if (weight >= uruf) {
-                // Set the flag to false to indicate that the alert has not been displayed
-                alertDisplayed = false;
-
-                // calculate gold value
-                var goldValue = (weight - uruf) * goldPrice;
-                document.getElementById("valueW").value = goldValue.toFixed(2);
-
-                // calculate zakat price
-                var zakatPrice = goldValue * 0.025;
-                document.getElementById("totalZakatW").value = zakatPrice.toFixed(2);
-            } else if (weight < uruf) {
-                if (!alertDisplayed) { // Check if the alert has been displayed
-                    document.getElementById("valueW").value = "0";
-                    document.getElementById("totalZakatW").value = "0";
-                    alert("Not subject to zakat because the weight of gold is less than the value of the letter.");
-                    alertDisplayed = true; // Set the flag to true to indicate that the alert has been displayed
-                }
-            } else {
-                document.getElementById("valueW").value = "0";
-                document.getElementById("totalZakatW").value = "0";
-            }
-
-        }
-
-        // for keep gold
-        function urufValueKeep() {
-            var x = document.getElementById("yearK").value;
-            if (x == "2023") {
-                document.getElementById("urufK").value = "85";
-                document.getElementById("goldpriceK").value = "254.42";
-            } else if (x == "2022") {
-                document.getElementById("urufK").value = "85";
-                document.getElementById("goldpriceK").value = "239.55";
-            } else if (x == "2021") {
-                document.getElementById("urufK").value = "85";
-                document.getElementById("goldpriceK").value = "238.81";
-            } else if (x == "2020") {
-                document.getElementById("urufK").value = "85";
-                document.getElementById("goldpriceK").value = "164.33";
-            } else
-                document.getElementById("urufK").value = "0";
-        }
-
-        // for keep gold
-        function calcValueZakatKeep() {
-            var weight = parseFloat(document.getElementById("weightK").value);
-            var uruf = parseFloat(document.getElementById("urufK").value);
-            var goldPrice = parseFloat(document.getElementById("goldpriceK").value);
-
-            if (weight >= uruf) {
-                // Set the flag to false to indicate that the alert has not been displayed
-                alertDisplayed = false;
-
-                // calculate gold value
-                var goldValue = weight * goldPrice;
-                document.getElementById("valueK").value = goldValue.toFixed(2);
-
-                // calculate zakat price
-                var zakatPrice = goldValue * 0.025;
-                document.getElementById("totalZakatK").value = zakatPrice.toFixed(2);
-            } else if (weight < uruf) {
-                if (!alertDisplayed) { // Check if the alert has been displayed
-                    document.getElementById("valueK").value = "0";
-                    document.getElementById("totalZakatK").value = "0";
-                    alert("Not subject to zakat because the weight of gold is less than the value of the letter.");
-                    alertDisplayed = true; // Set the flag to true to indicate that the alert has been displayed
-                }
-            } else {
-                document.getElementById("valueK").value = "0";
-                document.getElementById("totalZakatK").value = "0";
-            }
-        }
-    </script>
-
-
+    <script src="{{ asset('js/zakatCalculator.js') }}"></script>
 </x-app-layout>

@@ -6,6 +6,7 @@ use App\Models\Zakat;
 use App\Http\Requests\StoreZakatRequest;
 use App\Http\Requests\UpdateZakatRequest;
 use App\Models\Gold;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class ZakatController extends Controller
@@ -15,17 +16,18 @@ class ZakatController extends Controller
      */
     public function index()
     {
-        // Get the current user's ID
-        $userId = Auth::id();
-
+        // Get the authenticated user
+        $user = Auth::user();
+    
         // Retrieve gold records for the current user
-        $golds = Gold::where('user_id', $userId)->get();
-
+        $golds = Gold::where('user_id', $user->id)->get();
+    
         return view('zakat.CalculateZakatPage', [
+            'user' => $user,
             'golds' => $golds,
-        ]);   // Pass all gold records to the view
-       
+        ]);
     }
+    
     
 
     /**
