@@ -6,6 +6,7 @@ use App\Models\Pawnshop;
 use App\Http\Requests\StorePawnshopRequest;
 use App\Http\Requests\UpdatePawnshopRequest;
 use Illuminate\Support\Facades\Auth;
+use Request;
 
 class PawnshopController extends Controller
 {
@@ -22,11 +23,31 @@ class PawnshopController extends Controller
             // Retrieve the search query from the request
             $search = request('search');
 
-            // Retrieve all gold records for the current user and paginate the results
-            $pawnshops = Pawnshop::search(request(key: 'search'))->paginate(5);
+            if (Request::get('sort') == 'margin_desc') {
+                // Retrieve all gold records for the current user and paginate the results
+                $pawnshops = Pawnshop::search(request(key: 'search'))
+                    ->orderBy('margin', 'desc')
+                    ->paginate(5);
+            } else if (Request::get('sort') == 'margin_asc') {
+                // Retrieve all gold records for the current user and paginate the results
+                $pawnshops = Pawnshop::search(request(key: 'search'))
+                    ->orderBy('margin', 'asc')
+                    ->paginate(5);
+            } else if (Request::get('sort') == 'newest') {
+                // Retrieve all gold records for the current user and paginate the results
+                $pawnshops = Pawnshop::search(request(key: 'search'))
+                    ->orderBy('updated_at', 'desc')
+                    ->paginate(5);
+            } else {
+                // Retrieve all gold records for the current user and paginate the results
+                $pawnshops = Pawnshop::search(request(key: 'search'))
+                    ->paginate(5);
+            }
 
-            // // Retrieve all pawnshop records
-            // $pawnshops = Pawnshop::paginate(5);
+            return view('pawnshop.ViewPawnshopPage', [
+                'pawnshops' => $pawnshops,
+                'search' => $search,
+            ]);
         } else if (in_array('Pawnshop Owner', $currentUserRole)) {
             // Get the current user's ID
             $userId = Auth::id();
@@ -34,14 +55,14 @@ class PawnshopController extends Controller
             $search = request('search');
             // Retrieve pawnshop records for the current user
             $pawnshops = Pawnshop::search(request(key: 'search'))->where('user_id', $userId)->paginate(5);
+
+            return view('pawnshop.ViewPawnshopPage', [
+                'pawnshops' => $pawnshops,
+                'search' => $search,
+            ]);
         } else {
             return redirect()->away('https://example.com/default');
         }
-
-        return view('pawnshop.ViewPawnshopPage', [
-            'pawnshops' => $pawnshops,
-            'search' => $search,
-        ]);
     }
 
     public function website(Pawnshop $pawnshop)

@@ -24,6 +24,13 @@
                             </button>
                         </div>
                     </form>
+                    <div class="col-md-12 mb-3 mt-4">
+                        <span class="font-semibold" style="margin: 0 10px;">Filter by:</span>
+                        <a href="{{ URL::current() }}" class="text-blue-500 hover:text-blue-700" style="margin: 0 10px;">All</a>
+                        <a href="{{ URL::current() . '?sort=margin_desc' . '&search=' . $search }}" class="text-blue-500 hover:text-blue-700" style="margin: 0 10px;">Margin - High to Low</a>
+                        <a href="{{ URL::current().'?sort=margin_asc' . '&search=' . $search }}" class="text-blue-500 hover:text-blue-700" style="margin: 0 10px;">Margin - Low to High</a>
+                        <a href="{{ URL::current().'?sort=newest' . '&search=' . $search }}" class="text-blue-500 hover:text-blue-700" style="margin: 0 10px;">Newest</a>
+                    </div>
                     <div class="py-2 align-middle inline-block min-w-full sm:px-1 lg:px-8">
                         @forelse ($pawnshops as $pawnshop)
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 mt-3">
