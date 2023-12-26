@@ -13,7 +13,7 @@ class ZakatPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->hasPermissionTo('list zakat');
     }
 
     /**
@@ -21,7 +21,7 @@ class ZakatPolicy
      */
     public function view(User $user, Zakat $zakat): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -29,7 +29,7 @@ class ZakatPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -37,7 +37,7 @@ class ZakatPolicy
      */
     public function update(User $user, Zakat $zakat): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -45,7 +45,7 @@ class ZakatPolicy
      */
     public function delete(User $user, Zakat $zakat): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -53,7 +53,7 @@ class ZakatPolicy
      */
     public function restore(User $user, Zakat $zakat): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -61,6 +61,6 @@ class ZakatPolicy
      */
     public function forceDelete(User $user, Zakat $zakat): bool
     {
-        //
+        return false;
     }
 }

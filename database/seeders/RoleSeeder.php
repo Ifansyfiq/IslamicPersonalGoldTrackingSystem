@@ -44,10 +44,16 @@ class RoleSeeder extends Seeder
             'delete profile',
         ];
 
+        // Define permission for manage zakat record
+        $manageZakatPermissions = [
+            'list zakat',
+        ];
+
         $permissionArrays = [
             $manageGoldRecordPermissions,
             $managePawnshopPermissions,
             $manageUserProfilePermissions,
+            $manageZakatPermissions,
         ];
 
         // Create all permissions
@@ -76,7 +82,8 @@ class RoleSeeder extends Seeder
             ),
             'User' => array_merge(
                 $manageGoldRecordPermissions,
-                $managePawnshopPermissions
+                $managePawnshopPermissions,
+                $manageZakatPermissions
             ),
             'Pawnshop Owner' => array_merge(
                 $managePawnshopPermissions

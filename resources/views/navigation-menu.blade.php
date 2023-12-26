@@ -34,11 +34,13 @@
                 </div>
                 @endcan
 
+                @can('view-any', App\Models\Zakat::class)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('zakat.index') }}" :active="request()->routeIs('zakat.index')">
                         {{ __('Zakat') }}
                     </x-nav-link>
                 </div>
+                @endcan
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('pawnshop.index') }}" :active="request()->routeIs('pawnshop.index')">
