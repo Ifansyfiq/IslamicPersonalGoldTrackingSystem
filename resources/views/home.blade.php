@@ -19,7 +19,7 @@
                     <div class="brand header-brand">
                         <h1 class="m-0">
                             <!-- system logo -->
-                            <a href="#">
+                            <a href="{{ url('/') }}">
                                 <img src="{{ asset('/images/logo/myGoldTraceWhite.png') }}" width="100" height="50" viewBox="0 0 32 32">
                                 <title>myGoldTrace</title>
                                 <defs>
