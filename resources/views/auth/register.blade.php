@@ -36,7 +36,24 @@
 
             <div class="mt-4">
                 <x-label for="state" value="{{ __('State') }}" />
-                <x-input id="state" class="block mt-1 w-full" type="text" name="state" :value="old('state')" required autofocus autocomplete="state" />
+                <select id="state" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="state" required autofocus autocomplete="state">
+                    <option value="" disabled selected>Select State</option>
+                    <option value="Johor" @if(old('state')=='Johor' ) selected @endif>Johor</option>
+                    <option value="Kedah" @if(old('state')=='Kedah' ) selected @endif>Kedah</option>
+                    <option value="Kelantan" @if(old('state')=='Kelantan' ) selected @endif>Kelantan</option>
+                    <option value="Melaka" @if(old('state')=='Melaka' ) selected @endif>Melaka</option>
+                    <option value="Kuala Lumpur" @if(old('state')=='Kuala Lumpur' ) selected @endif>Kuala Lumpur</option>
+                    <option value="Putrajaya" @if(old('state')=='Putrajaya' ) selected @endif>Putrajaya</option>
+                    <option value="Negeri Sembilan" @if(old('state')=='Negeri Sembilan' ) selected @endif>Negeri Sembilan</option>
+                    <option value="Pahang" @if(old('state')=='Pahang' ) selected @endif>Pahang</option>
+                    <option value="Perak" @if(old('state')=='Perak' ) selected @endif>Perak</option>
+                    <option value="Perlis" @if(old('state')=='Perlis' ) selected @endif>Perlis</option>
+                    <option value="Pulau Pinang" @if(old('state')=='Pulau Pinang' ) selected @endif>Pulau Pinang</option>
+                    <option value="Sabah" @if(old('state')=='Sabah' ) selected @endif>Sabah</option>
+                    <option value="Sarawak" @if(old('state')=='Sarawak' ) selected @endif>Sarawak</option>
+                    <option value="Selangor" @if(old('state')=='Selangor' ) selected @endif>Selangor</option>
+                    <option value="Terengganu" @if(old('state')=='Terengganu' ) selected @endif>Terengganu</option>
+                </select>
             </div>
 
             <div class="mt-4">
@@ -55,20 +72,20 @@
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
+            <div class="mt-4">
+                <x-label for="terms">
+                    <div class="flex items-center">
+                        <x-checkbox name="terms" id="terms" required />
 
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
+                        <div class="ml-2">
+                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
+                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
+                            ]) !!}
                         </div>
-                    </x-label>
-                </div>
+                    </div>
+                </x-label>
+            </div>
             @endif
 
             <div class="flex items-center justify-end mt-4">
