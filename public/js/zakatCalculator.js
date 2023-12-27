@@ -12,7 +12,10 @@ function initializePage() {
     goldValueWear();
     urufValueWear();
     urufValueKeep();
+    calcValueZakatWear();
+    calcValueZakatKeep();
 }
+
 // for wear gold
 function goldValueWear() {
     var x = document.getElementById("yearW").value;

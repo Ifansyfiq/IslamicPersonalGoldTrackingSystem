@@ -92,7 +92,9 @@
                                 <td></td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <x-input type="text" id="weightW" class="form-control" name="weightW" oninput="calcValueZakatWear()" />
+                                        <div>
+                                            <x-input type="text" value="{{ app('App\Http\Controllers\ZakatController')->calculateTotalWear() }}" id="weightW" class="form-control" name="weightW" oninput="calcValueZakatKeep()" />
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -177,7 +179,7 @@
                                 <td></td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <x-input type="text" id="weightK" class="form-control" name="weightK" oninput="calcValueZakatKeep()" />
+                                        <x-input type="text" id="weightK" value="{{ app('App\Http\Controllers\ZakatController')->calculateTotalKeep() }}" class="form-control" name="weightK" oninput="calcValueZakatKeep()" />
                                     </div>
                                 </td>
                             </tr>
