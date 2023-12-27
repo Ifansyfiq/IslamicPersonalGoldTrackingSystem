@@ -11,7 +11,7 @@
                 <!-- Wear Gold Table -->
                 <form>
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                        <thead class="text-xs text-white uppercase bg-gray-800">
+                        <thead class="text-xs text-white uppercase" style="background: #B59410;">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     Wear Gold
@@ -126,7 +126,7 @@
 
                     <!-- Keep Gold Table -->
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                        <thead class="text-xs text-white uppercase bg-gray-800">
+                        <thead class="text-xs text-white uppercase" style="background: #B59410;">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     Keep Gold
@@ -210,10 +210,10 @@
                         </tbody>
                     </table>
                     <div class="flex items-center justify-center px-4 py-3 text-center sm:px-6">
-                        <button <a href="#" onclick="window.print()" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                        <button <a href="#" onclick="window.print()" style="background: #B59410;" class="inline-flex items-center px-4 py-2 mr-3 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                             Print
                         </button>
-                        <button onclick="refreshPage()" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Reset</button>
+                        <button onclick="refreshPage()" style="background: #B59410;" class="inline-flex items-center px-4 py-2 mr-3 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Reset</button>
                     </div>
                 </form>
             </div>
