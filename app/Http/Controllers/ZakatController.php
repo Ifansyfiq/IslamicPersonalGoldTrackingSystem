@@ -35,6 +35,19 @@ class ZakatController extends Controller
             ->where('user_id', Auth::user()->id)
             ->sum('weight');
 
+        // Calculate the number of decimal places
+        $decimalPlaces = strlen(substr(strrchr($totalWeightWear, "."), 1));
+
+        // Format the weight based on the number of decimal places
+        if ($decimalPlaces > 0) {
+            $formattedWeight = rtrim(number_format($totalWeightWear, $decimalPlaces, '.', ''), '0');
+        } else {
+            $formattedWeight = rtrim(number_format($totalWeightWear, 0, '', ''), '0');
+        }
+
+        // Remove the decimal point if there are no decimal places
+        $totalWeightWear = rtrim($formattedWeight, '.');
+
         return $totalWeightWear;
         // return view('zakat.CalculateZakatPage', ['totalWeightWear' => $totalWeightWear]);
     }
@@ -46,6 +59,19 @@ class ZakatController extends Controller
         $totalWeightKeep = Gold::where('status', 'Own(Keep)')
             ->where('user_id', Auth::user()->id)
             ->sum('weight');
+
+        // Calculate the number of decimal places
+        $decimalPlaces = strlen(substr(strrchr($totalWeightKeep, "."), 1));
+
+        // Format the weight based on the number of decimal places
+        if ($decimalPlaces > 0) {
+            $formattedWeight = rtrim(number_format($totalWeightKeep, $decimalPlaces, '.', ''), '0');
+        } else {
+            $formattedWeight = rtrim(number_format($totalWeightKeep, 0, '', ''), '0');
+        }
+
+        // Remove the decimal point if there are no decimal places
+        $totalWeightKeep = rtrim($formattedWeight, '.');
 
         return $totalWeightKeep;
         // return view('zakat.CalculateZakatPage', ['totalWeightKeep' => $totalWeightKeep]);
