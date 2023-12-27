@@ -56,4 +56,31 @@ class UserController extends Controller
 
         return redirect()->route('user.index');
     }
+
+    /**
+     * Dashboard information for Admin roles.
+     */
+
+    public function totalUser()
+    {
+        $totalUsers = User::count();
+
+        return $totalUsers;
+    }
+
+    public function newUser()
+    {
+        $newUsers = User::where('created_at', '>=', now()->subDays(7))->count();
+
+        return $newUsers;
+    }
+
+    public function typeUser()
+    {
+        $typeUsers = User::whereHas('roles', function ($query) {
+            $query->where('name', 'Pawnshop Owner');
+        })->count();
+
+        return $typeUsers;
+    }
 }

@@ -18,10 +18,16 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+                <!-- User Dashboard 1-->
+                @if (auth()->check() && in_array(auth()->user()->roles->pluck('name')->implode(' '), ['User', 'Super Admin']))
                 <div class="card">
                     <div class="card-overlay"></div>
                     <div class="card-inner">Gold Record<br>{{ Auth::user()->gold->count() }}</div>
                 </div>
+                @endif
+
+                <!-- User Dasboard 2 -->
+                @if (auth()->check() && in_array(auth()->user()->roles->pluck('name')->implode(' '), ['User', 'Super Admin']))
                 <div class="card">
                     <div class="card-overlay"></div>
                     <div class="card-inner">Total Gold Weight<br>
@@ -34,10 +40,41 @@
                         @endphp g
                     </div>
                 </div>
+                @endif
+
+                <!-- User Dasboard 3 -->
+                @if (auth()->check() && in_array(auth()->user()->roles->pluck('name')->implode(' '), ['User', 'Super Admin']))
                 <div class="card">
                     <div class="card-overlay"></div>
                     <div class="card-inner">Gold Price 999(24k)<br>{{ app('App\Http\Controllers\ScraperController')->scraper() }}/g<br></div>
                 </div>
+                @endif
+
+                <!-- Admin Dasboard 1 -->
+                @if (auth()->check() && in_array(auth()->user()->roles->pluck('name')->implode(' '), ['Admin', 'Super Admin']))
+                <div class="card">
+                    <div class="card-overlay"></div>
+                    <div class="card-inner">Total Users<br><br>{{ app('App\Http\Controllers\UserController')->totalUser() }}</div>
+                </div>
+                @endif
+
+                <!-- Admin Dasboard 2 -->
+                @if (auth()->check() && in_array(auth()->user()->roles->pluck('name')->implode(' '), ['Admin', 'Super Admin']))
+                <div class="card">
+                    <div class="card-overlay"></div>
+                    <div class="card-inner">New Users<br>(Last 7 Days)<br>{{ app('App\Http\Controllers\UserController')->newUser() }}</div>
+                </div>
+                @endif
+
+                <!-- Admin Dasboard 3 -->
+                @if (auth()->check() && in_array(auth()->user()->roles->pluck('name')->implode(' '), ['Admin', 'Super Admin']))
+                <div class="card">
+                    <div class="card-overlay"></div>
+                    <div class="card-inner">Number of<br>Pawnshop Owner<br>{{ app('App\Http\Controllers\UserController')->typeUser() }}</div>
+                </div>
+                @endif
+
+
             </div>
             <div class="mt-6">
                 <div id="default-carousel" class="relative w-full" data-carousel="slide">
