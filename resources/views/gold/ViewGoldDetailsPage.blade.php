@@ -7,10 +7,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="relative overflow-x-auto">
-                <table class="w-full text-sm text-left rtl:text-right text-black">
+                <table class="w-full text-sm text-black">
                     <thead class="text-xs text-white uppercase" style="background: #B59410;">
                         <tr>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 text-left">
                                 Gold Details
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -26,7 +26,7 @@
                                 <img src="{{ asset('uploads/golds/'.$gold->gold_image) }}" width="100px" alt="gold_image" class="img-fluid">
                             </td>
                         </tr>
-                        <tr class="bg-white border-b">
+                        <tr class="border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Gold Name
                             </th>
@@ -42,7 +42,7 @@
                                 {{ \Carbon\Carbon::parse($gold->purchase_date)->format('d-m-y') }}
                             </td>
                         </tr>
-                        <tr class="bg-white border-b">
+                        <tr class="border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Purchase Time
                             </th>
@@ -58,7 +58,7 @@
                                 {{($gold->purchase_from)}}
                             </td>
                         </tr>
-                        <tr class="bg-white border-b">
+                        <tr class="border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Gold Figure
                             </th>
@@ -74,7 +74,7 @@
                                 {{($gold->gold_purity)}}
                             </td>
                         </tr>
-                        <tr class="bg-white border-b">
+                        <tr class="border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Weight
                             </th>
@@ -107,7 +107,7 @@
                                 {{($gold->status)}}
                             </td>
                         </tr>
-                        <tr class="bg-white border-b">
+                        <tr class="border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Buy Price
                             </th>
@@ -123,7 +123,7 @@
                                 RM {{($gold->sell_price)}}
                             </td>
                         </tr>
-                        <tr class="bg-white border-b">
+                        <tr class="border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-black">
                                 Spread
                                 <br>
