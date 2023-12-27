@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GoldController;
 use App\Http\Controllers\PawnshopController;
+use App\Http\Controllers\ScraperController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZakatController;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+    // scrap gold price
+    Route::get('/scraper', [ScraperController::class, 'scraper'])->name('scraper');
 
     Route::resource('gold', GoldController::class);
     Route::resource('zakat', ZakatController::class);
+    // redirect website
     Route::get('pawhshop/website/{pawnshop}', [PawnshopController::class, 'website'])->name('pawnshop.website');
     Route::resource('pawnshop', PawnshopController::class);
     Route::resource('user', UserController::class);

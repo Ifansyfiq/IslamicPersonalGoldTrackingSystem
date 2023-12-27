@@ -36,10 +36,9 @@
                 </div>
                 <div class="card">
                     <div class="card-overlay"></div>
-                    <div class="card-inner">Current Gold Price<br> </div>
+                    <div class="card-inner">Gold Price 999(24k)<br>{{ app('App\Http\Controllers\ScraperController')->scraper() }}/g<br></div>
                 </div>
             </div>
-
             <div class="mt-6">
                 <div id="default-carousel" class="relative w-full" data-carousel="slide">
                     <!-- Carousel wrapper -->
