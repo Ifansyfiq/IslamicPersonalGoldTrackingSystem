@@ -31,6 +31,7 @@ function goldValueWear() {
         document.getElementById("goldpriceW").value = "0";
 }
 
+// for wear gold
 function urufValueWear() {
     var x = document.getElementById("locationW").value;
     if (x == "Johor") {

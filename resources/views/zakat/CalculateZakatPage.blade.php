@@ -93,7 +93,7 @@
                                 <td class="px-6 py-4">
                                     <div>
                                         <div>
-                                            <x-input type="text" value="{{ app('App\Http\Controllers\ZakatController')->calculateTotalWear() }}" id="weightW" class="form-control" name="weightW" oninput="calcValueZakatKeep()" />
+                                            <x-input type="text" value="{{ app('App\Http\Controllers\ZakatController')->calculateTotalWear() }}" id="weightW" class="form-control" name="weightW" oninput="calcValueZakatWear()" />
                                         </div>
                                     </div>
                                 </td>
