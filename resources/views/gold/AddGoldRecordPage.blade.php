@@ -10,7 +10,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <h2 class="px-2 py-2 mb-4 text-4xl bg-gray-800 text-white font-semibold leading-tight text-primary ">
+                <h2 class="px-2 py-2 mb-4 text-4xl text-Black font-semibold leading-tight text-primary " style="background: #B59410;">
                     Add Records
                 </h2>
             </div>
@@ -111,10 +111,10 @@
                     <div class="relative z-0 w-full mb-6 group"></div>
                 </div>
                 <div class="flex items-center justify-center px-4 py-3 text-center sm:px-6">
-                    <button class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                    <button style="background: #B59410;" class="inline-flex items-center px-4 py-2 mr-3  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                         Submit
                     </button>
-                    <a href="{{ route('gold.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Cancel</a>
+                    <a href="{{ route('gold.index') }}" style="background: #B59410;" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Cancel</a>
                 </div>
             </form>
         </div>
