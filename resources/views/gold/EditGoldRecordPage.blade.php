@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <h2 class="px-2 py-2 mb-4 text-4xl text-black font-semibold leading-tight text-primary " style="background: #B59410;">
+                <h2 class="px-2 py-2 mb-4 text-4xl text-white font-semibold leading-tight text-primary " style="background: #B59410;">
                     Update Record
                 </h2>
             </div>

@@ -31,34 +31,34 @@
                             <table class="min-w-full text-left text-sm font-light mt-2">
                                 <thead class="border-b font-medium dark:border-neutral-500">
                                     <tr>
-                                        <th scope="col" width="50" class="px-6 py-3  text-left text-xs font-medium text-black uppercase tracking-wider" style="background: #B59410;">
+                                        <th scope="col" width="50" class="px-6 py-3  text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                             NO
                                         </th>
-                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-black uppercase tracking-wider" style="background: #B59410;">
+                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                             Gold Name
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider" style="background: #B59410;">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                             Purity
                                         </th>
-                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-black uppercase tracking-wider" style="background: #B59410;">
+                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                             Weight
                                         </th>
-                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-black uppercase tracking-wider" style="background: #B59410;">
+                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                             Purchase Date
                                         </th>
-                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-black uppercase tracking-wider" style="background: #B59410;">
+                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                             Purchase Time
                                         </th>
-                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-black uppercase tracking-wider" style="background: #B59410;">
+                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                             Purchase From
                                         </th>
-                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-black uppercase tracking-wider" style="background: #B59410;">
+                                        <th scope="col" class="px-6 py-3  text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                             Status
                                         </th>
-                                        @for ($i = 0; $i < 1; $i++)<th scope="col" class="px-6 py-3  text-left text-xs font-medium text-black uppercase tracking-wider" style="background: #B59410;">
+                                        @for ($i = 0; $i < 1; $i++)<th scope="col" class="px-6 py-3  text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                             </th>
                                             @endfor
-                                            <th scope="col" width="200" class="px-6 py-3  text-black uppercase text-center" style="background: #B59410;">
+                                            <th scope="col" width="200" class="px-6 py-3  text-white uppercase text-center" style="background: #B59410;">
                                                 Action
                                             </th>
                                     </tr>

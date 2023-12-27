@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left rtl:text-right text-black">
-                    <thead class="text-xs text-black uppercase" style="background: #B59410;">
+                    <thead class="text-xs text-white uppercase" style="background: #B59410;">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Gold Details
