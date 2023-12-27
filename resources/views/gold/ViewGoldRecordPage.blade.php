@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    <link rel="stylesheet" href="{{ asset('css/table.css') }}">
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="block mb-8">
@@ -26,6 +28,70 @@
                                     </button>
                                 </div>
                             </form>
+
+                            <!-- change table template -->
+                            <div class="container">
+                                <ul class="responsive-table">
+                                    <li class="table-header">
+                                        <div class="col col-1">NO</div>
+                                        <div class="col col-2">Gold Name</div>
+                                        <div class="col col-3">Purity</div>
+                                        <div class="col col-4">Weight</div>
+                                        <div class="col col-5">Purchase Date</div>
+                                        <div class="col col-6">Purchase Time</div>
+                                        <div class="col col-7">Purchase From</div>
+                                        <div class="col col-8">Status</div>
+                                        <div class="col col-9">Action</div>
+                                    </li>
+                                    @php
+                                    $counter = 1; // Initialize a counter variable
+                                    @endphp
+                                    @forelse ($golds as $gold)
+                                    <li class="table-row">
+                                        <div class="col col-1" data-label="No">{{ $counter }}</div>
+                                        <div class="col col-2" data-label="Gold Name">{{($gold->gold_name)}}</div>
+                                        <div class="col col-3" data-label="Purity">{{($gold->gold_purity)}}</div>
+                                        <div class="col col-4" data-label="Weight">
+                                            <?php
+                                            $weight = $gold->weight;
+
+                                            // Calculate the number of decimal places
+                                            $decimalPlaces = strlen(substr(strrchr($weight, "."), 1));
+
+                                            // Format the weight based on the number of decimal places
+                                            if ($decimalPlaces > 0) {
+                                                $formattedWeight = rtrim(number_format($weight, $decimalPlaces, '.', ''), '0');
+                                            } else {
+                                                $formattedWeight = rtrim(number_format($weight, 0, '', ''), '0');
+                                            }
+
+                                            // Remove the decimal point if there are no decimal places
+                                            $formattedWeight = rtrim($formattedWeight, '.');
+
+                                            echo $formattedWeight;
+                                            ?>g</div>
+                                        <div class="col col-5" data-label="Purchase Date">{{ \Carbon\Carbon::parse($gold->purchase_date)->format('d-m-y') }}</div>
+                                        <div class="col col-6" data-label="Purchase Time">{{ \Carbon\Carbon::parse($gold->purchase_time)->format('h:i A') }}</div>
+                                        <div class="col col-7" data-label="Purchase From">{{($gold->purchase_from)}}</div>
+                                        <div class="col col-8" data-label="Status">{{($gold->status)}}</div>
+                                        <div class="col col-9" data-label="Action">
+                                            @can('view', $gold)
+                                            <a href="{{ route('gold.show', [$gold->id]) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
+                                            @endcan
+
+                                        </div>
+                                    </li>
+                                    @php
+                                    $counter++; // Increment the counter variable
+                                    @endphp
+                                    @empty
+                                    <p class="text-warning">No record available</p>
+                                    @endforelse
+                                </ul>
+                                {{ $golds->links() }}
+                            </div>
+                            <!-- end change table template -->
+
                             <table class="min-w-full text-left text-sm font-light mt-2">
                                 <thead class="border-b font-medium dark:border-neutral-500">
                                     <tr>
