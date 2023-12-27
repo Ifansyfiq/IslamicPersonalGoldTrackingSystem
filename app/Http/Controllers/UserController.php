@@ -12,6 +12,18 @@ class UserController extends Controller
      */
     public function index()
     {
+
+        // Retrieve the search query from the request
+            $search = request('search');
+
+            // Retrieve all gold records for the current user and paginate the results
+            $users = User::search(request(key: 'search'))->paginate(5);
+
+            return view('user-profile.ViewUserProfilePage', [
+                'users' => $users,
+                'search' => $search,
+            ]);
+
         $users = User::paginate(5);
 
         return view('user-profile.ViewUserProfilePage', [

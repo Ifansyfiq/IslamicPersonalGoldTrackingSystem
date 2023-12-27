@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Laravel\Scout\Searchable;
 
 class User extends Authenticatable
 {
@@ -19,7 +20,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
-
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -76,5 +77,14 @@ class User extends Authenticatable
     public function pawnshop() //: \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Pawnshop::class);
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+            'phone_num' => $this->phone_num,
+            'email' => $this->email,
+        ];
     }
 }
