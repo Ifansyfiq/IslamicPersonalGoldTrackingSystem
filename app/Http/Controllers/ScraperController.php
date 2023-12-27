@@ -11,23 +11,17 @@ class ScraperController extends Controller
     
     public function scraper()
     {
+        // Create a new Goutte client instance
         $client = new Client();
+        // Get the current gold price
         $url = 'https://goldrate.com/ms/harga-emas-hari-ini-semasa/';
+        // Go to the gold price page
         $page = $client->request('GET', $url);
 
-        // echo "<pre>";
-        // print_r($page);
-
+        // Get the current gold price
         $currentGoldPrice = $page->filter('.text-right')->filter('.num')->filter('.24kt-price')->text();
-        // echo $page->filter('.text-right')->filter('.num')->filter('.22kt-price')->text();
-
+     
+        // Return the current gold price
         return $currentGoldPrice;
-
-        // return view('dashboard', [
-        //     'currentGoldPrice' => $currentGoldPrice,
-        // ]);
-
-        // return view('dashboard')->with('currentGoldPrice', $currentGoldPrice);
-        // return view('scraper');
     }
 }
