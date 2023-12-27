@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-gray-500">
-                    <thead class="text-xs text-white text-left uppercase bg-gray-800">
+                    <thead class="text-xs text-white text-left uppercase" style="background: #B59410;">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left">
                                 {{ $pawnshop->arrahnu_type }}
@@ -151,8 +151,8 @@
                 </table>
             </div>
             <div class="flex items-center justify-center px-4 py-3 text-center sm:px-6">
-                <a href="{{ route('pawnshop.website', [$pawnshop->id]) }}" target="_blank" class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Website</a>
-                <a href="{{ route('pawnshop.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Back</a>
+                <a href="{{ route('pawnshop.website', [$pawnshop->id]) }}" target="_blank" style="background: #B59410;" class="inline-flex items-center px-4 py-2 mr-3  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Website</a>
+                <a href="{{ route('pawnshop.index') }}" style="background: #B59410;" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Back</a>
             </div>
         </div>
     </div>

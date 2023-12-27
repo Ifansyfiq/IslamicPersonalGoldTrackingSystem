@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <h2 class="px-2 py-2 mb-4 text-4xl bg-gray-800 text-white font-semibold leading-tight text-primary">
+                <h2 class="px-2 py-2 mb-4 text-4xl  text-white font-semibold leading-tight text-primary" style="background: #B59410;">
                     Update Items
                 </h2>
             </div>
@@ -40,7 +40,7 @@
                         <label for="loan_duration" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Loan duration</label>
                     </div>
                 </div>
-                <div class="px-2 py-2 mb-4 text-4xl bg-gray-800 text-white font-semibold leading-tight text-primary">
+                <div class="px-2 py-2 mb-4 text-4xl  text-white font-semibold leading-tight text-primary" style="background: #B59410;">
                     Safekeeping Rate
                 </div>
                 <div class="grid md:grid-cols-3 md:gap-6">
@@ -57,7 +57,7 @@
                         <label for="safekeep_rate3" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Above 10,001</label>
                     </div>
                 </div>
-                <div class="px-2 py-2 mb-4 text-4xl bg-gray-800 text-white font-semibold leading-tight text-primary">
+                <div class="px-2 py-2 mb-4 text-4xl  text-white font-semibold leading-tight text-primary" style="background: #B59410;">
                     Agents
                 </div>
                 <div class="grid md:grid-cols-2 md:gap-6">
@@ -70,7 +70,7 @@
                         <label for="agent_contact_num" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Contact num</label>
                     </div>
                 </div>
-                <div class="px-2 py-2 mb-4 text-4xl bg-gray-800 text-white font-semibold leading-tight text-primary">
+                <div class="px-2 py-2 mb-4 text-4xl  text-white font-semibold leading-tight text-primary" style="background: #B59410;">
                     Operation Time
                 </div>
                 <div class="grid md:grid-cols-2 md:gap-6">
@@ -103,7 +103,7 @@
                         <label for="sat" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Saturday</label>
                     </div>
                 </div>
-                <div class="px-2 py-2 mb-4 text-4xl bg-gray-800 text-white font-semibold leading-tight text-primary">
+                <div class="px-2 py-2 mb-4 text-4xl  text-white font-semibold leading-tight text-primary" style="background: #B59410;">
                     Contact Details
                 </div>
                 <div class="grid md:grid-cols-2 md:gap-6">
@@ -125,10 +125,10 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center px-4 py-3 text-center sm:px-6">
-                    <button class="inline-flex items-center px-4 py-2 mr-3 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                    <button style="background: #B59410;" class="inline-flex items-center px-4 py-2 mr-3  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                         Submit
                     </button>
-                    <a href="{{ route('pawnshop.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Cancel</a>
+                    <a href="{{ route('pawnshop.index') }}" style="background: #B59410;" class="inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Cancel</a>
                 </div>
             </form>
         </div>
