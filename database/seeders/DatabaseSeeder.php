@@ -15,9 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             GoldTypeSeeder::class,
-            GoldSeeder::class,
-            SafeKeepRateSeeder::class,
-            PawnshopSeeder::class,
+            // GoldSeeder::class,
+            // PawnshopSeeder::class,
             RoleSeeder::class,
         ]);
     }
