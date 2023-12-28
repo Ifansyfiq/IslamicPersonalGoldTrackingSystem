@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     {
         // Adding a super admin user for the purpose of testing all modules
         User::factory()->create([
-            'name' => 'Super Admin', 
+            'name' => 'Testing', 
             'email' => 'admin@admin.com',
             'password' => Hash::make('admin'),
         ]);
@@ -27,12 +27,12 @@ class UserSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name' => 'User',
+            'name' => 'Public User',
             'email' => 'user@example.com',
         ]);
 
         User::factory()->create([
-            'name' => 'Pawnshop',
+            'name' => 'Pawnshop Owner',
             'email' => 'pawnshop@example.com',
         ]);
 
