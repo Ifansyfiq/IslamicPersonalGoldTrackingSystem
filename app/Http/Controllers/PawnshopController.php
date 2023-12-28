@@ -78,7 +78,7 @@ class PawnshopController extends Controller
                     ->where('user_id', $userId)
                     ->paginate(5);
             }
-            
+
             return view('pawnshop.ViewPawnshopPage', [
                 'pawnshops' => $pawnshops,
                 'search' => $search,
@@ -139,7 +139,6 @@ class PawnshopController extends Controller
             'address' => $request->address,
             'website_link' => $request->website_link,
             'user_id' => auth()->user()->id,
-            'safekeep_rate_id' => 1,
         ]);
 
         return redirect()->route('pawnshop.index');
@@ -181,7 +180,10 @@ class PawnshopController extends Controller
      */
     public function update(UpdatePawnshopRequest $request, Pawnshop $pawnshop)
     {
-        if ($pawnshop->user_id == auth()->user()->id) {
+        $allowedRoles = ['Admin', 'Super Admin']; // Define the allowed roles
+        $currentUserRole = Auth::user()->roles->pluck('name')->toArray(); // Retrieve the current user's roles
+
+        if ($pawnshop->user_id == auth()->user()->id || !empty(array_intersect($currentUserRole, $allowedRoles))) {
             $pawnshop->update([
                 'arrahnu_type' => $request->arrahnu_type,
                 'arrahnu_name' => $request->arrahnu_name,
@@ -214,7 +216,10 @@ class PawnshopController extends Controller
      */
     public function destroy(Pawnshop $pawnshop)
     {
-        if ($pawnshop->user_id == auth()->user()->id) {
+        $allowedRoles = ['Admin', 'Super Admin']; // Define the allowed roles
+        $currentUserRole = Auth::user()->roles->pluck('name')->toArray(); // Retrieve the current user's roles
+
+        if ($pawnshop->user_id == auth()->user()->id || !empty(array_intersect($currentUserRole, $allowedRoles))) {
             $pawnshop->delete();
         }
 
