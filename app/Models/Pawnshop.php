@@ -33,7 +33,6 @@ class Pawnshop extends Model
         'fri',
         'sat',
         'user_id',
-        'safekeep_rate_id',
 
     ];
 
