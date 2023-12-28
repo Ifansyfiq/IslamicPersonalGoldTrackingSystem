@@ -40,7 +40,6 @@ class PawnshopFactory extends Factory
             'address' => $this->faker->address(),
             'website_link' => $this->faker->url(),
             'user_id' => User::inRandomOrder()->pluck('id')->first(),
-            'safekeep_rate_id' => SafeKeepRate::inRandomOrder()->pluck('id')->first(),
 
         ];
     }

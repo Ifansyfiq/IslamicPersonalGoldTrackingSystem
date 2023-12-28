@@ -43,11 +43,6 @@ class Pawnshop extends Model
     }
 
 
-    public function safekeeprate()
-    {
-        return $this->belongsTo(SafeKeepRate::class, 'safekeep_rate_id');
-    }
-
     public function toSearchableArray()
     {
         return [

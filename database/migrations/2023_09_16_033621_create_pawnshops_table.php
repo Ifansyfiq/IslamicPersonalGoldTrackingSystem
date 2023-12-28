@@ -35,7 +35,6 @@ return new class extends Migration
             $table->string('address');
             $table->string('website_link');
             $table->foreignId('user_id');
-            $table->foreignId('safekeep_rate_id');
 
             $table->timestamps();
         });

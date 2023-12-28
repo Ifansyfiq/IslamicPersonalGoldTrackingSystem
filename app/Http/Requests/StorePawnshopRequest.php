@@ -43,7 +43,6 @@ class StorePawnshopRequest extends FormRequest
             'address' => 'required|string',
             'website_link' => 'required|string',
             'user_id' => 'numeric',
-            'safekeep_rate_id' => 'numeric',
         ];
     }
 }
