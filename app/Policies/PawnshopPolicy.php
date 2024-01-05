@@ -37,7 +37,7 @@ class PawnshopPolicy
      */
     public function update(User $user, Pawnshop $pawnshop): bool
     {
-        return $user->hasAnyRole(['Admin', 'Super Admin']) || ($user->hasRole('Pawnshop Owner') && $user->id === $pawnshop->user_id);
+        return $user->hasAnyRole(['Admin', 'Super Admin', 'Pawnshop Owner']);
     }
 
     /**
@@ -45,7 +45,7 @@ class PawnshopPolicy
      */
     public function delete(User $user, Pawnshop $pawnshop): bool
     {
-        return $user->hasAnyRole(['Admin', 'Super Admin']) || ($user->hasRole('Pawnshop Owner') && $user->id === $pawnshop->user_id);
+        return $user->hasAnyRole(['Admin', 'Super Admin', 'Pawnshop Owner']);
     }
 
     /**
