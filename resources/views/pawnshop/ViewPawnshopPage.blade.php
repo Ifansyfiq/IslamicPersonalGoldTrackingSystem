@@ -37,7 +37,7 @@
                             <thead class="text-black uppercase bg-gray-800 mb-4">
                                 <tr>
                                     <th scope="col" class="px-6 py-2 text-left text-xs font-semibold uppercase tracking-wider" style="background: #B59410;">
-                                        {{ $pawnshop->arrahnu_type }}
+                                      Ar-Rahnu  {{ $pawnshop->arrahnu_type }}
                                     </th>
                                     @for ($i = 0; $i < 9; $i++) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider" style="background: #B59410;">
                                         </th>

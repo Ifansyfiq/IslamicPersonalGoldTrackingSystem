@@ -11,7 +11,7 @@
                     <thead class="text-xs text-white text-left uppercase" style="background: #B59410;">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left">
-                                {{ $pawnshop->arrahnu_type }}
+                               Ar-Rahnu {{ $pawnshop->arrahnu_type }}
                             </th>
                             <th scope="col" class="px-6 py-3">
                             </th>
