@@ -49,7 +49,7 @@
                     <div class="card-inner">Gold Price 999(24k)<br>{{ app('App\Http\Controllers\ScraperController')->goldPrice() }}/g
                         <br>
                         <span style="color: {{ app('App\Http\Controllers\ScraperController')->goldChange() < 0 ? 'red' : 'green' }};">
-                            {{ app('App\Http\Controllers\ScraperController')->goldChange() }}
+                            ({{ app('App\Http\Controllers\ScraperController')->goldChange() }}%)
                         </span>
                     </div>
                 </div>

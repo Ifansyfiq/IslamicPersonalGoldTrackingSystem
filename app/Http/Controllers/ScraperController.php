@@ -35,7 +35,10 @@ class ScraperController extends Controller
         $page = $client->request('GET', $url);
 
         // Get the current gold price
-        $currentGoldChange = $page->filter('.24kt-price')->filter('.day-percentage-change-value')->text();
+        $rawGoldChange = $page->filter('.24kt-price')->filter('.day-percentage-change-value')->text();
+
+        // Clean up the value (remove non-numeric characters)
+        $currentGoldChange = preg_replace("/[^0-9.-]/", "", $rawGoldChange);
 
         // Return the current gold price
         return $currentGoldChange;
