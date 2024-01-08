@@ -63,8 +63,8 @@
                                         <option value="Kedah" {{ $user->state === 'Kedah' ? 'selected' : '' }}>Kedah</option>
                                         <option value="Kelantan" {{ $user->state === 'Kelantan' ? 'selected' : '' }}>Kelantan</option>
                                         <option value="Melaka" {{ $user->state === 'Melaka' ? 'selected' : '' }}>Melaka</option>
-                                        <option value="Kuala Lumpur" {{ $user->state === 'Johor' ? 'selected' : '' }}>Kuala Lumpur</option>
-                                        <option value="Putrajaya" {{ $user->state === 'Johor' ? 'selected' : '' }}>Putrajaya</option>
+                                        <option value="Kuala Lumpur" {{ $user->state === 'Kuala Lumpur' ? 'selected' : '' }}>Kuala Lumpur</option>
+                                        <option value="Putrajaya" {{ $user->state === 'Putrajaya' ? 'selected' : '' }}>Putrajaya</option>
                                         <option value="Negeri Sembilan" {{ $user->state === 'Negeri Sembilan' ? 'selected' : '' }}>Negeri Sembilan</option>
                                         <option value="Pahang" {{ $user->state === 'Pahang' ? 'selected' : '' }}>Pahang</option>
                                         <option value="Perak" {{ $user->state === 'Perak' ? 'selected' : '' }}>Perak</option>

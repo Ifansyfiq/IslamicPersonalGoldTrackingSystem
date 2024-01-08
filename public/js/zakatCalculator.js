@@ -42,7 +42,9 @@ function urufValueWear() {
         document.getElementById("urufW").value = "0";
     } else if (x == "Melaka") {
         document.getElementById("urufW").value = "180";
-    } else if (x == "Kuala Lumpur dan Putrajaya") {
+    } else if (x == "Kuala Lumpur") {
+        document.getElementById("urufW").value = "200";
+    } else if (x == "Putrajaya") {
         document.getElementById("urufW").value = "200";
     } else if (x == "Negeri Sembilan") {
         document.getElementById("urufW").value = "170";
