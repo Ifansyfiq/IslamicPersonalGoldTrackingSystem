@@ -1,1 +1,19 @@
-<p align="center"><a href="https://mygoldtrace.raegrp.com/" target="_blank"><img src= "{{ asset('/images/logo/myGoldTrace.png') }}" width="80" alt="myGoldTrace Logo"></a></p>
+# myGoldTrace
+Islamic Personal Gold Tracking System is a web-based system 
+for personal use to record their gold assest in one center places that easy to be manage
+and organize
+
+PROJECT LINK
+https://mygoldtrace.raegrp.com/ 
+
+ADMIN
+Email: 		admin@example.com
+Password: 	password
+
+USER
+Email: 		user@example.com
+Password: 	password
+
+PAWNSHOP OWNER (AR-RAHNU)
+Email: 		pawnshop@example.com
+Password: 	password
