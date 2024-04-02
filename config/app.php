@@ -170,6 +170,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        Weidner\Goutte\GoutteServiceProvider::class, //declare GoutteServiceProvider
     ])->toArray(),
 
     /*
@@ -185,6 +186,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Goutte' => Weidner\Goutte\GoutteFacade::class, //declare GoutteFacade
     ])->toArray(),
 
 ];
