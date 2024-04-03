@@ -77,6 +77,8 @@
 
 
             </div>
+
+
             <div class="mt-6">
                 <div id="default-carousel" class="relative w-full" data-carousel="slide">
                     <!-- Carousel wrapper -->
@@ -129,6 +131,47 @@
                     </button>
                 </div>
             </div>
+
+
+            <!-- User Dasboard 4 -->
+            @if (auth()->check() && in_array(auth()->user()->roles->pluck('name')->implode(' '), ['User', 'Super Admin']))
+            <div class="relative overflow-x-auto mt-8 mb-4">
+                @php
+                $scraperController = new \App\Http\Controllers\ScraperController();
+                $table = $scraperController->tableGold();
+                @endphp
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Gold Purity
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Gram/MYR
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                High
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Low
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(array_slice($table, 1) as $row)
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            @foreach(array_slice($row, 0, 4) as $cell)
+                            <td class="px-6 py-4">
+                                {{ $cell }}
+                            </td>
+                            @endforeach
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            @endif
+
 
         </div>
     </div>

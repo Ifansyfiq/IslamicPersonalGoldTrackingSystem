@@ -8,17 +8,21 @@ use Goutte\Client;
 class ScraperController extends Controller
 {
 
-    public function index()
+    public function tableGold()
     {
 
         $client = new Client();
 
-        $website = $client->request('GET', 'https://www.livepriceofgold.com/malaysia-gold-price.html');
+        $crawler = $client->request('GET', 'https://www.livepriceofgold.com/malaysia-gold-price.html');
 
-        $price = $website->filter('.sekme-content')->filter('.data-table-price')->filter('.bold3')->text();
+        $table = $crawler->filter('table')->filter('.data-table-price')->eq(0)->filter('tr')->each(function ($tr) {
+            return $tr->filter('td')->each(function ($td)   
+            {
+                return $td->text();
+            });    
+        });
 
-        return $price;
-
+        return $table;
     }
 
 
@@ -27,9 +31,9 @@ class ScraperController extends Controller
         // Create a new Goutte client instance
         $client = new Client();
 
-        $website = $client->request('GET', 'https://www.livepriceofgold.com/malaysia-gold-price.html');
+        $crawler = $client->request('GET', 'https://www.livepriceofgold.com/malaysia-gold-price.html');
 
-        $currentGoldPrice = $website->filter('.sekme-content')->filter('.data-table-price')->filter('.bold3')->text();
+        $currentGoldPrice = $crawler->filter('.sekme-content')->filter('.data-table-price')->filter('.bold3')->text();
 
 
         // Return the current gold price
