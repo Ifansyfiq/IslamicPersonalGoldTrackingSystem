@@ -17,7 +17,7 @@
                     Track your gold holdings, calculate gold zakat, and explore the features designed to make your experience effortless.</span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8 mb-8">
                 <!-- User Dashboard 1-->
                 @if (auth()->check() && in_array(auth()->user()->roles->pluck('name')->implode(' '), ['User', 'Super Admin']))
                 <div class="card">
