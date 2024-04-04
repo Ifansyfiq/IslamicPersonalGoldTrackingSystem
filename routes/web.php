@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GoldController;
 use App\Http\Controllers\PawnshopController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ScraperController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZakatController;
@@ -35,6 +36,7 @@ Route::middleware([
     Route::get('/scraper', [ScraperController::class, 'scraper'])->name('scraper');
 
     // Route::resource('scraper', ScraperController::class); //make scraper routes
+    Route::resource('products', ProductController::class);
     Route::resource('gold', GoldController::class);
     Route::resource('zakat', ZakatController::class);
     // redirect website
