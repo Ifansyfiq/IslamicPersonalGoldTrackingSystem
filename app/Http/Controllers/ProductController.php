@@ -13,7 +13,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() : View 
+    public function index(): View
     {
         $products = Product::latest()->paginate(5);
 
@@ -24,7 +24,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() : View
+    public function create(): View
     {
         return view('products.create');
     }
@@ -32,7 +32,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) :  RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => 'required',
@@ -43,7 +43,7 @@ class ProductController extends Controller
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
+            $destinationPath = 'images/product';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
@@ -51,7 +51,7 @@ class ProductController extends Controller
 
         Product::create($input);
 
-        return redirect ()->route('products.index')
+        return redirect()->route('products.index')
             ->with('success', 'Product created successfully.'); // Redirect to the index page with a success message  
 
     }
@@ -59,7 +59,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product) : View
+    public function show(Product $product): View
     {
         return view('products.show', compact('product'));
     }
@@ -67,7 +67,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product) : View
+    public function edit(Product $product): View
     {
         return view('products.edit', compact('product'));
     }
