@@ -117,7 +117,7 @@ class GoldController extends Controller
      */
     public function update(UpdateGoldRequest $request, Gold $gold)
     {
-        $updateInfo = $gold;
+        // $updateInfo = $gold;
 
         if ($request->hasFile('image_golds')) {
             $file = $request->file('image_golds');
@@ -128,14 +128,29 @@ class GoldController extends Controller
             // Update the gold image field in the database
             $gold['image_golds'] = $filename;
 
-            // Delete the previous gold_image file if it exists
-            if (!empty($updateInfo->gold_image)) {
-                $previousFile = 'uploads/golds/' . $updateInfo->gold_image;
-                if (File::exists($previousFile)) {
-                    File::delete($previousFile);
+            // // Delete the previous gold_image file if it exists
+            // if (!empty($updateInfo->gold_image)) {
+            //     $previousFile = 'uploads/golds/' . $updateInfo->gold_image;
+            //     if (File::exists($previousFile)) {
+            //         File::delete($previousFile);
+            //     }
+            // }
+
+            // Delete the old image if it exists
+            if ($gold->gold_image) {
+                // Ensure that the image file exists before attempting deletion
+                if (file_exists(public_path('uploads/golds' . $gold->gold_image))) {
+                    unlink(public_path('uploads/golds' . $gold->gold_image));
                 }
             }
+        } else {
+            // If no new image is uploaded, retain the existing image
+            $gold['gold_image'] = $gold->gold_image;
         }
+
+        // $gold->update(['gold_image' => $filename]);
+
+        // }
 
         if ($gold->user_id == auth()->user()->id) {
             $gold->update([
@@ -149,6 +164,7 @@ class GoldController extends Controller
                 'buy_price' => $request->buy_price,
                 'sell_price' => $request->sell_price,
                 'spread' => $request->spread,
+                'gold_image' => $filename,
             ]);
         }
 
