@@ -13,7 +13,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() : View 
+    public function index(): View
     {
         $products = Product::latest()->paginate(5);
 
@@ -24,7 +24,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() : View
+    public function create(): View
     {
         return view('products.create');
     }
@@ -32,7 +32,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) :  RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => 'required',
@@ -51,7 +51,7 @@ class ProductController extends Controller
 
         Product::create($input);
 
-        return redirect ()->route('products.index')
+        return redirect()->route('products.index')
             ->with('success', 'Product created successfully.'); // Redirect to the index page with a success message  
 
     }
@@ -59,7 +59,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product) : View
+    public function show(Product $product): View
     {
         return view('products.show', compact('product'));
     }
@@ -67,7 +67,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product) : View
+    public function edit(Product $product): View
     {
         return view('products.edit', compact('product'));
     }
@@ -75,34 +75,52 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product) : RedirectResponse
+    public function update(Request $request, Product $product)
     {
+        // Validate request
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Update validation for image
         ]);
 
+        // Retrieve all inputs from the form
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
+        // Check if a new image is uploaded
+        if ($request->hasFile('image')) {
+            // Move the new image to the destination directory
+            $image = $request->file('image');
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
-            $image = "$profileImage";
-        }else{
-            unset($input['image']);
+
+            // Update the image field with the new image path
+            $input['image'] = $profileImage;
+
+            // Delete the old image if it exists
+            if ($product->image) {
+                // Ensure that the image file exists before attempting deletion
+                if (file_exists(public_path('image/' . $product->image))) {
+                    unlink(public_path('image/' . $product->image));
+                }
+            }
+        } else {
+            // If no new image is uploaded, retain the existing image
+            $input['image'] = $product->image;
         }
 
-        $product->update($request->all());
+        // Update the product with the new input
+        $product->update($input);
 
         return redirect()->route('products.index')
             ->with('success', 'Product updated successfully');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product) : RedirectResponse
+    public function destroy(Product $product): RedirectResponse
     {
         $product->delete();
 
