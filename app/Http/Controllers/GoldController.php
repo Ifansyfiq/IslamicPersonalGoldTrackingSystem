@@ -117,6 +117,7 @@ class GoldController extends Controller
      */
     public function update(UpdateGoldRequest $request, Gold $gold)
     {
+        $filename = $gold->gold_image; // if no new image is uploaded, use the existing image
 
         if ($request->hasFile('image_golds')) {
             $file = $request->file('image_golds');
@@ -130,13 +131,10 @@ class GoldController extends Controller
             // Delete the old image if it exists
             if ($gold->gold_image) {
                 // Ensure that the image file exists before attempting deletion
-                if (file_exists(public_path('uploads/golds' . $gold->gold_image))) {
-                    unlink(public_path('uploads/golds' . $gold->gold_image));
+                if (file_exists(public_path('uploads/golds' . $gold->gold_image))) { // Check if the file exists
+                    unlink(public_path('uploads/golds' . $gold->gold_image)); // Delete the old image file
                 }
             }
-        } else {
-            // If no new image is uploaded, retain the existing image
-            $input['gold_image'] = $gold->gold_image;
         }
 
         if ($gold->user_id == auth()->user()->id) {
@@ -151,6 +149,7 @@ class GoldController extends Controller
                 'buy_price' => $request->buy_price,
                 'sell_price' => $request->sell_price,
                 'spread' => $request->spread,
+                'gold_image' => $filename,
             ]);
         }
 

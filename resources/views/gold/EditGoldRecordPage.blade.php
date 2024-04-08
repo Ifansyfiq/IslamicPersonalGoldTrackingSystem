@@ -12,7 +12,7 @@
                     Update Record
                 </h2>
             </div>
-            <form action="{{route('gold.update', [$golds->id])}}" method="POST">
+            <form action="{{route('gold.update', [$golds->id])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="grid md:grid-cols-2 md:gap-6">
