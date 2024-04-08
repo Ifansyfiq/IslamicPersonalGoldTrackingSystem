@@ -75,52 +75,34 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product) : RedirectResponse
     {
-        // Validate request
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Update validation for image
         ]);
 
-        // Retrieve all inputs from the form
         $input = $request->all();
 
-        // Check if a new image is uploaded
-        if ($request->hasFile('image')) {
-            // Move the new image to the destination directory
-            $image = $request->file('image');
-            $destinationPath = 'images/product';
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
-
-            // Update the image field with the new image path
-            $input['image'] = $profileImage;
-
-            // Delete the old image if it exists
-            if ($product->image) {
-                // Ensure that the image file exists before attempting deletion
-                if (file_exists(public_path('images/product' . $product->image))) {
-                    unlink(public_path('images/product' . $product->image));
-                }
-            }
-        } else {
-            // If no new image is uploaded, retain the existing image
-            $input['image'] = $product->image;
+            $image = "$profileImage";
+        }else{
+            unset($input['image']);
         }
 
-        // Update the product with the new input
-        $product->update($input);
+        $product->update($request->all());
 
         return redirect()->route('products.index')
             ->with('success', 'Product updated successfully');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product): RedirectResponse
+    public function destroy(Product $product) : RedirectResponse
     {
         $product->delete();
 
