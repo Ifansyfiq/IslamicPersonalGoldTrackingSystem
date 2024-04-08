@@ -42,7 +42,7 @@
 
     <footer class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
-            &copy; 2023 myGoldTrace
+            &copy; 2024 myGoldTrace
         </div>
     </footer>
     @stack('modals')
