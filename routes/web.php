@@ -35,6 +35,8 @@ Route::middleware([
     // scrap gold price
     Route::get('/scraper', [ScraperController::class, 'scraper'])->name('scraper');
 
+    // Route::resource('scraper', ScraperController::class); //make scraper routes
+    Route::resource('products', ProductController::class);
     Route::resource('gold', GoldController::class);
     Route::resource('zakat', ZakatController::class);
     // redirect website
