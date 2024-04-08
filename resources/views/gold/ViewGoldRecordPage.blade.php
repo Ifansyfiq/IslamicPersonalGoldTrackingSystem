@@ -9,6 +9,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success" style="background-color: #d4edda; color: #155724; padding: .75rem 1.25rem;">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
             <div class="block mb-8">
                 @can('create', App\Models\Gold::class)
                 <a href="{{ route('gold.create') }}" style="background: #B59410;" class="inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Add Record</a>
