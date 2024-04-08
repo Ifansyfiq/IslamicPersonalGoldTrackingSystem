@@ -86,7 +86,8 @@ class GoldController extends Controller
 
 
 
-        return redirect()->route('gold.index');
+        return redirect()->route('gold.index')
+            ->with('success', 'Product created successfully.');;
     }
 
     /**
@@ -153,7 +154,8 @@ class GoldController extends Controller
             ]);
         }
 
-        return redirect()->route('gold.index');
+        return redirect()->route('gold.index')
+            ->with('success', 'Product updated successfully.');
     }
 
     /**
@@ -165,6 +167,7 @@ class GoldController extends Controller
             $gold->delete();
         }
 
-        return redirect()->route('gold.index');
+        return redirect()->route('gold.index')
+            ->with('success', 'Product deleted successfully.');
     }
 }
